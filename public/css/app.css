@@ -11294,6 +11294,10 @@ textarea.form-control-lg {
   padding: 0;
 }
 
+.cl-mid-blue {
+  color: #2c3e50 !important;
+}
+
 .nav-brand-slogan {
   font-family: "Varela Round", sans-serif;
   position: absolute;
