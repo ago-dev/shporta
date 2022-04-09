@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function($table) {
-            $table->string('remember_token');
-        });
+        DB::statement('
+            INSERT INTO roles (name) VALUES ("Employee"), ("Customer");
+        ');
     }
-    
 
     /**
      * Reverse the migrations.
@@ -26,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table) {
-            $table->dropColumn('remember_token');
-        });
+        DB::statement('
+            DELETE FROM roles WHERE name = "Employee" OR name = "Customer";
+        ');
     }
 };
