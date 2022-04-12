@@ -1,9 +1,12 @@
 <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
     <div class="container px-4">
         <a class="nav-brand-link" href="{{ route('home') }}">
-            <h1 class="nav-brand">Shporta
-            </h1>
-            <span class="nav-brand-slogan">Love your hunger</span>
+            <div class="brand-container">
+                <div class="shporta-logo"></div>
+                <h1 class="nav-brand">Shporta
+                </h1>
+                <span class="nav-brand-slogan">Love your hunger</span>
+            </div>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav class="support-nav navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-dark" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -7,8 +7,11 @@
         </button>
 
         <a class="nav-brand-link" href="{{ route('home') }}">
-            <h1 class="nav-brand cl-mid-blue">Shporta
+            <div class="brand-container">
+                <div class="shporta-logo circle-logo"></div>
+            <h1 class="nav-brand cl-mid-white">Shporta
             </h1>
+            </div>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">

@@ -4676,7 +4676,7 @@ input[type='button'].btn-block
 .custom-control-input:checked ~ .custom-control-label::before
 {
     color: #fff;
-    background-color: #5e72e4;
+    background-color: #ff6b6b;
     box-shadow: none;
 }
 .custom-control-input:focus ~ .custom-control-label::before
@@ -4686,7 +4686,7 @@ input[type='button'].btn-block
 .custom-control-input:active ~ .custom-control-label::before
 {
     color: #fff;
-    background-color: #5e72e4;
+    background-color: #ff6b6b;
     box-shadow: none;
 }
 .custom-control-input:disabled ~ .custom-control-label
@@ -4750,7 +4750,7 @@ input[type='button'].btn-block
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before
 {
-    background-color: #5e72e4;
+    background-color: #ff6b6b;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after
@@ -5589,12 +5589,13 @@ input[type='button'].btn-block
 
 .navbar-light .navbar-nav .nav-link
 {
-    color: rgba(0, 0, 0, .5);
+    color: #FFFFF0;
 }
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus
 {
-    color: rgba(0, 0, 0, .7);
+    color: #FFFFF0;
+    opacity: .8;
 }
 .navbar-light .navbar-nav .nav-link.disabled
 {
@@ -7926,7 +7927,7 @@ button.close
 
 .bg-primary
 {
-    background-color: #5e72e4 !important;
+    background-color: #ff6b6b !important;
 }
 
 a.bg-primary:hover,
@@ -7939,7 +7940,7 @@ button.bg-primary:focus
 
 .bg-secondary
 {
-    background-color: #f7fafc !important;
+    background-color: #fff !important;
 }
 
 a.bg-secondary:hover,
@@ -8030,7 +8031,7 @@ button.bg-dark:focus
 
 .bg-default
 {
-    background-color: #172b4d !important;
+    background: #FFFFF0;
 }
 
 a.bg-default:hover,
@@ -14593,13 +14594,14 @@ a.text-success:focus
 
 .text-info
 {
-    color: #11cdef !important;
+    color: #222f3e !important;
+    opacity: .6;
 }
 
 a.text-info:hover,
 a.text-info:focus
 {
-    color: #0da5c0 !important;
+    color: #222f3e !important;
 }
 
 .text-warning
@@ -15045,7 +15047,7 @@ button.bg-lighter:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
+    background: #ff6b6b !important;
 }
 
 .bg-gradient-secondary
@@ -15399,11 +15401,6 @@ button.section-darker:focus
     background-color: black !important;
 }
 
-.bg-gradient-primary
-{
-    background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%) !important;
-}
-
 .bg-gradient-secondary
 {
     background: linear-gradient(87deg, #f7fafc 0, #f7f8fc 100%) !important;
@@ -15461,7 +15458,7 @@ button.section-darker:focus
 
 .fill-primary
 {
-    fill: #5e72e4;
+    fill: #c7ecee !important;
 }
 
 .stroke-primary
@@ -15541,7 +15538,7 @@ button.section-darker:focus
 
 .fill-default
 {
-    fill: #172b4d;
+    fill: #FFFFF0;
 }
 
 .stroke-default
@@ -16829,7 +16826,6 @@ a.text-lighter:focus
 .btn:hover
 {
     transform: translateY(-1px); 
-
     box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
 }
 .btn:not(:last-child)
@@ -17660,7 +17656,7 @@ a.btn-icon-only
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before
 {
-    border-color: #5e72e4;
+    border-color: #ff6b6b;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after
@@ -17722,7 +17718,7 @@ a.btn-icon-only
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before
 {
-    border-color: #5e72e4;
+    border-color: #ff6b6b;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after
@@ -17965,7 +17961,7 @@ a.btn-icon-only
 
 .nav-footer .nav-link
 {
-    font-size: .875rem;
+    font-size: 14px;
 }
 
 .nav-footer .nav-item:last-child .nav-link
@@ -18893,6 +18889,7 @@ textarea[resize='horizontal']
 
 .nav-link
 {
+    font-size: 14px;
     color: #525f7f;
 }
 .nav-link:hover
@@ -18972,7 +18969,7 @@ textarea[resize='horizontal']
 
 .navbar-horizontal .navbar-nav .nav-link
 {
-    font-size: .9rem;
+    font-size: .1rem;
     font-weight: 400;
 
     transition: all .15s linear; 
@@ -19047,7 +19044,7 @@ textarea[resize='horizontal']
     }
     .navbar-horizontal .navbar-nav .nav-link-icon
     {
-        font-size: 1rem;
+        font-size: .85rem;
 
         padding-right: .5rem !important;
         padding-left: .5rem !important;

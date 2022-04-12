@@ -3136,8 +3136,6 @@ textarea.form-control.is-invalid
 .btn:hover
 {
     text-decoration: none; 
-
-    color: #212529;
 }
 .btn:focus,
 .btn.focus
@@ -12114,7 +12112,7 @@ a.text-success:focus
 
 .text-info
 {
-    color: #17a2b8 !important;
+    color: #222f3e !important;
 }
 
 a.text-info:hover,
