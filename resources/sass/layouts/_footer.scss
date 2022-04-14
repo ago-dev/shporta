@@ -1,0 +1,25 @@
+.copyright {
+    font-size: 15px;
+
+    a {
+        color: #fffff0 !important;
+    }
+}
+
+footer {
+    margin-top: 40px;
+    padding: 30px 10px;
+    background-color: #ff6b6b;
+}
+
+.footer-link {
+    color: #fffff0;
+    margin: 14px;
+    font-size: 14px;
+    transition: .3s;
+    &:hover {
+        color: #fffff0;
+        opacity: .8;
+        transition: .3s;
+    }
+}
