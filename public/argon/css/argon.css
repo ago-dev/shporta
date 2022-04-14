@@ -5727,8 +5727,14 @@ input[type='button'].btn-block
 .card-body
 {
     padding: 1.5rem; 
-
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
     flex: 1 1 auto;
+    transition: .8s;
+}
+
+.card-body:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+    transition: .3s;
 }
 
 .card-title
@@ -8031,7 +8037,7 @@ button.bg-dark:focus
 
 .bg-default
 {
-    background: #FFFFF0;
+    background: #f7f1e3;
 }
 
 a.bg-default:hover,
@@ -15538,7 +15544,7 @@ button.section-darker:focus
 
 .fill-default
 {
-    fill: #FFFFF0;
+    fill: #f7f1e3;
 }
 
 .stroke-default
