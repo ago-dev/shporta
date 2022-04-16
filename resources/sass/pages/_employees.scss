@@ -20,3 +20,15 @@
 .emp-heading {
     font-family: $font-varela-round;
 }
+
+.employee-modal-title {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-family: $font-varela-round;
+    
+    i {
+        margin-right: 12px;
+        font-size: 28px;
+    }
+}
