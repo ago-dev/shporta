@@ -1,0 +1,22 @@
+.container-employee {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .action-btn {
+        display: inline-flex;
+        align-items: center;
+        i {
+            margin-right: 5px;
+        }
+    }
+}
+
+.employee-form {
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.emp-heading {
+    font-family: $font-varela-round;
+}

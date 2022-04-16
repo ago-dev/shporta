@@ -3012,6 +3012,9 @@ textarea.form-control-lg {
     transition: none;
   }
 }
+.btn:hover {
+  color: #212529;
+}
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
@@ -11342,6 +11345,28 @@ footer {
   color: #fffff0;
   opacity: 0.8;
   transition: 0.3s;
+}
+
+.container-employee {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.container-employee .action-btn {
+  display: inline-flex;
+  align-items: center;
+}
+.container-employee .action-btn i {
+  margin-right: 5px;
+}
+
+.employee-form {
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.emp-heading {
+  font-family: "Varela Round", sans-serif;
 }
 
 .sm-blue {

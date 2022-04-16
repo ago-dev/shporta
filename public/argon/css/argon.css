@@ -1914,13 +1914,14 @@ pre code
 {
     width: 100%;
     margin-bottom: 1rem;
-
-    background-color: transparent;
+    background-color: white;
+    border-top: none;
+    padding: 10px;
 }
 .table th,
 .table td
 {
-    padding: 1rem;
+    padding: 1.4rem;
 
     vertical-align: top;
 
@@ -20863,8 +20864,8 @@ textarea[resize='horizontal']
 
 .table thead th
 {
-    font-size: .65rem;
-
+    font-size: .8rem;
+    font-family: 'Roboto', sans-serif;
     padding-top: .75rem;
     padding-bottom: .75rem;
 
@@ -20872,6 +20873,14 @@ textarea[resize='horizontal']
     text-transform: uppercase;
 
     border-bottom: 1px solid #e9ecef;
+}
+
+.table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
 }
 
 .table th
@@ -20890,7 +20899,6 @@ textarea[resize='horizontal']
 .table th
 {
     font-size: .8125rem;
-
     white-space: nowrap;
 }
 
