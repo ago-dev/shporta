@@ -18,9 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->float('price');
             $table->foreignId('menu_id')->constrained();
-            // $table->foreign('menu_id')->references('id')->on('menus');
             $table->foreignId('food_category_id')->constrained();
-            // $table->foreign('food_category_id')->references('id')->on('food_categories');
         });
     }
 

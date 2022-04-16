@@ -17,11 +17,8 @@ return new class extends Migration
             $table->id();
             $table->timestamp('payment_datetime');
             $table->foreignId('order_id')->constrained();
-            // $table->foreign('order_id')->references('id')->on('orders');
             $table->foreignId('customer_id')->constrained();
-            // $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreignId('payment_type_id')->constrained();
-            // $table->foreign('payment_type_id')->references('id')->on('payment_types');
         });
     }
 

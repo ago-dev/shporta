@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamp('end_date');
             $table->foreignId('customer_id')->constrained();
-            // $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreignId('discount_rate_id')->constrained();
-            // $table->foreign('discount_rate_id')->references('id')->on('discount_rates');
         });
     }
 

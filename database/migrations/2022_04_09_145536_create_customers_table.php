@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            // $table->foreign('user_id')->references('id')->on('users');
             $table->integer('customer_points')->default(0);
         });
     }

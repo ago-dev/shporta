@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('order_datetime');
-            $table->dateTime('delivery_datetime')->nullable();
-            $table->string('address');
-            $table->integer('order_points')->default(0);
-            $table->foreignId('customer_id')->constrained();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->nullable();
+            $table->string('token')->nullable();
+            $table->timestamp('created_at');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('password_resets');
     }
 };

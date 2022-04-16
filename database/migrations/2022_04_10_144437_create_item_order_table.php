@@ -17,9 +17,7 @@ return new class extends Migration
             $table->integer('quantity')->default(1);
             $table->integer('item_rating')->nullable();
             $table->foreignId('order_id')->constrained();
-            // $table->foreign('order_id')->references('id')->on('orders');
             $table->foreignId('food_item_id')->constrained();
-            // $table->foreign('food_item_id')->references('id')->on('food_items');
             $table->primary('order_id', 'food_item_id');
         });
     }
