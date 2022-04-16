@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employee_types', function (Blueprint $table) {
+        Schema::create('discount_rates', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('customer_points_limit');
+            $table->integer('order_price_limit');
+            $table->float('discount_percentage');
         });
-
-        DB::statement('
-            INSERT INTO roles (name) VALUES ("Employee"), ("Customer");
-        ');
     }
 
     /**
@@ -30,9 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_types');
-        DB::statement('
-            DELETE FROM roles WHERE name = "Employee" OR name = "Customer";
-        ');
+        Schema::dropIfExists('discount_rates');
     }
 };

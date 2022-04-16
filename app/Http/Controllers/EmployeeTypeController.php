@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEmployeeRequest;
-use App\Http\Requests\UpdateEmployeeRequest;
-use App\Models\Employee;
+use App\Http\Requests\StoreEmployeeTypeRequest;
+use App\Http\Requests\UpdateEmployeeTypeRequest;
+use App\Models\EmployeeType;
 
-class EmployeeController extends Controller
+class EmployeeTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +21,10 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEmployeeRequest  $request
+     * @param  \App\Http\Requests\StoreEmployeeTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(StoreEmployeeTypeRequest $request)
     {
         //
     }
@@ -32,10 +32,10 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\EmployeeType  $employeeType
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(EmployeeType $employeeType)
     {
         //
     }
@@ -43,11 +43,11 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEmployeeRequest  $request
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Http\Requests\UpdateEmployeeTypeRequest  $request
+     * @param  \App\Models\EmployeeType  $employeeType
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(UpdateEmployeeTypeRequest $request, EmployeeType $employeeType)
     {
         //
     }
@@ -55,10 +55,10 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\EmployeeType  $employeeType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(EmployeeType $employeeType)
     {
         //
     }

@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('employee_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('item_order', function (Blueprint $table) {
+            $table->integer('quantity')->default(1);
+            $table->integer('item_rating')->nullable();
+            $table->foreignId('order_id')->constrained();
+            $table->foreignId('food_item_id')->constrained();
+            $table->primary('order_id', 'food_item_id');
         });
-
-        DB::statement('
-            INSERT INTO roles (name) VALUES ("Employee"), ("Customer");
-        ');
     }
 
     /**
@@ -30,9 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_types');
-        DB::statement('
-            DELETE FROM roles WHERE name = "Employee" OR name = "Customer";
-        ');
+        Schema::dropIfExists('item_order');
     }
 };

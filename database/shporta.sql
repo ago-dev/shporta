@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `shporta`.`users` (
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `date_created` TIMESTAMP NOT NULL,
-  `role_id` INT NOT NULL,
+  `role_id` INT,
   `is_active` TINYINT NOT NULL DEFAULT 1,
   `remember_token` VARCHAR(100),
   PRIMARY KEY (`id`),

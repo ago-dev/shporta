@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEmployeeRequest;
-use App\Http\Requests\UpdateEmployeeRequest;
-use App\Models\Employee;
+use App\Http\Requests\StoreFoodCategoryRequest;
+use App\Http\Requests\UpdateFoodCategoryRequest;
+use App\Models\FoodCategory;
 
-class EmployeeController extends Controller
+class FoodCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +21,10 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEmployeeRequest  $request
+     * @param  \App\Http\Requests\StoreFoodCategoryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(StoreFoodCategoryRequest $request)
     {
         //
     }
@@ -32,10 +32,10 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show(FoodCategory $foodCategory)
     {
         //
     }
@@ -43,11 +43,11 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEmployeeRequest  $request
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Http\Requests\UpdateFoodCategoryRequest  $request
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(UpdateFoodCategoryRequest $request, FoodCategory $foodCategory)
     {
         //
     }
@@ -55,10 +55,10 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\FoodCategory  $foodCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy(FoodCategory $foodCategory)
     {
         //
     }
