@@ -54,7 +54,7 @@
                             </label>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary my-4">{{ __('Sign in') }}</button>
+                            <button type="submit" class="btn login-btn my-4">{{ __('Sign in') }}</button>
                         </div>
                         <div class="card-header bg-transparent">
                             <div class="text-center text-muted mb-4">
@@ -77,13 +77,13 @@
             <div class="row mt-3">
                 <div class="col-6">
                     @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-light">
+                    <a href="{{ route('password.request') }}" class="text-info">
                         <small>{{ __('Forgot password?') }}</small>
                     </a>
                     @endif
                 </div>
                 <div class="col-6 text-right">
-                    <a href="{{ route('register') }}" class="text-light">
+                    <a href="{{ route('register') }}" class="text-info">
                         <small>{{ __('Create new account') }}</small>
                     </a>
                 </div>

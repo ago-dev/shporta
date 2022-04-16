@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+.cl-mid-blue {
+    color: #2c3e50 !important;
+}
+
 .nav-brand-slogan {
     font-family: $font-family-sans-serif;
     position: absolute;
@@ -18,4 +22,18 @@
     color: #ffffff;
     bottom: -7px;
     right: -46px;
+}
+
+.shporta-logo {
+    width: 40px;
+    height: 40px;
+    background-image: url('../../../public/img/grain.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: .8;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: row;
 }
