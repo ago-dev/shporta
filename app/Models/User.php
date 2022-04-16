@@ -14,6 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $table = 'users';
     protected $connection = 'mysql';
+    public $timestamps = false;
 
     const CREATED_AT = 'date_created';
     const UPDATED_AT = null;

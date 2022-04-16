@@ -9,6 +9,7 @@ class Role extends Model
 {
     protected $table = 'roles';
     protected $connection = 'mysql';
+    public $timestamps = false;
 
     use HasFactory;
 }
