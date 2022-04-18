@@ -12,6 +12,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public $timestamps = false;
+
     const CREATED_AT = 'date_created';
     const UPDATED_AT = null;
     /**

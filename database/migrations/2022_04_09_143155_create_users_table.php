@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email');
-            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('password');
-            $table->timestamp('date_created');
+            $table->timestamp('date_created')->default(now());
             $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('role_id')->nullable()->constrained();
             $table->boolean('is_active')->default(true);
