@@ -1,4 +1,4 @@
-<form method="POST" action="">
+<form method="POST" action="/employees" enctype="multipart/form-data">
     <!-- Add Employee -->
     <button type="button" class="btn btn-success action-btn" data-toggle="modal" data-target="#employeeModal">
         <i class="ni ni-circle-08"></i> Add Employee

@@ -12,9 +12,6 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'users';
-    protected $connection = 'mysql';
-
     const CREATED_AT = 'date_created';
     const UPDATED_AT = null;
     /**
