@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -66,16 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        #$out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        #$out->writeln(Role::where('name', '=', 'Customer')->first()->id);
+
         $user = User::create([
             'first_name' => $data['firstName'],
             'last_name' => $data['lastName'],
-            'username' => $data['username'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'role_id' => Role::where('name', '=', 'Customer')->first()->id
         ]);
 
-        $role = new App\Models\Role(['role' => 2]);
-        $user->roles()->save($role);
         return $user;
     }
 }
