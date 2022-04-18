@@ -11,7 +11,7 @@ class Role extends Model
 
     use HasFactory;
 
-    public static function getRoleByName($role): Role {
-        return Role::where('name', $role)->first();
+    public static function getRoleByName($name): Role {
+        return Role::where('name', $name)->first();
     }
 }
