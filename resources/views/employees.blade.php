@@ -1,16 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.app', ['class' => 'bg-blue'])
 
 @section('content')
+<div class="header bg-blue py-7 py-lg-5">
+</div>
+<div class="container-employee pb-5">
+    <h1 class="text-white display-3 emp-heading">Employee Management Tool</h1>
+    <p class="text-light">Get the best out of your data in simple clicks</p>
+    <br>
 
-<div class="container-fluid mt--7">
-    @include('layouts.headers.guest')
-    @include('layouts.navbars.navs.auth')
+    @include('employees.create') 
+    @include('employees.list')
 
-    @include('layouts.footers.auth')
 </div>
 @endsection
-
-@push('js')
-<script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
-<script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
-@endpush
