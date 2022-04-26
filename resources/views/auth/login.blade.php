@@ -46,6 +46,7 @@
                             </span>
                             @endif
                         </div>
+                        <br>
                         <div class="custom-control custom-control-alternative custom-checkbox">
                             <input class="custom-control-input" name="remember" id="customCheckLogin" type="checkbox"
                                 {{ old('remember') ? 'checked' : '' }}>

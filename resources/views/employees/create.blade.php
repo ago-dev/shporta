@@ -1,4 +1,5 @@
-<form method="POST" action="/employees" enctype="multipart/form-data">
+<form role="form" method="POST" action="{{ route('register') }}">
+    @csrf
     <!-- Add Employee -->
     <button type="button" class="btn btn-success action-btn" data-toggle="modal" data-target="#employeeModal">
         <i class="ni ni-circle-08"></i> Add Employee
@@ -10,7 +11,7 @@
 
     <!-- Add Employee Modal -->
     <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeModalLabel"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -22,29 +23,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="employeeEmail">Email address</label>
-                            <input type="email" class="form-control" id="employee-email" placeholder="Enter email"
-                                name="employeeEmail">
-                        </div>
-                        <div class="form-group">
-                            <label for="employeePassword">Password</label>
-                            <input type="password" class="form-control" id="employee-password" placeholder="Password"
-                                name="employeePassword">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-select" name="role">
-                                <option value="">Select role</option>
-                                <option value="admin">Administrator</option>
-                                <option value="support">Customer Support</option>
-                            </select>
-                        </div>
 
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </form>
-                </div>
+                @include('components.RegisterForm', ['employeeView' => true])
             </div>
         </div>
     </div>

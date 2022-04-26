@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\EmployeeRoleEnum;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
+use App\Models\User;
 
 class EmployeeController extends Controller
 {
@@ -22,11 +24,11 @@ class EmployeeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreEmployeeRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \App\Models\User
      */
-    public function store(StoreEmployeeRequest $request)
+    public function store(array $data)
     {
-        //
+        return null;
     }
 
     /**

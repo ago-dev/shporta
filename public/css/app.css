@@ -11396,3 +11396,7 @@ footer {
   background-color: #ff6b6b;
   color: white;
 }
+
+.modal-content {
+  padding: 20px;
+}

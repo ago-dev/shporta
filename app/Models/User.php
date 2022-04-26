@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Enum\UserRoleEnum;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -46,4 +48,15 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $casts = [
     ];
+
+    public static function store(array $data, $role): User {
+        return User::create([
+            'first_name' => $data['firstName'],
+            'last_name' => $data['lastName'],
+            'email' => $data['email'],
+            'username' => $data['username'],
+            'password' => Hash::make($data['password']),
+            'role_id' => Role::getRoleByName($role)->id
+        ]);
+    }
 }
