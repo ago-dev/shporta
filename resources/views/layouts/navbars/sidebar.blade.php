@@ -1,4 +1,4 @@
-<nav class="support-nav navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-dark" id="sidenav-main">
+<nav class="support-nav navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-gradient-dark rounded-end" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"

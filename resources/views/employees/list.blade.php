@@ -16,12 +16,12 @@
             <td>{{$employee->employeeType}}</td>
             <td>{{$employee->dateCreated}}</td>
             <td class="td-actions text-right">
-                <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title=""
-                        title="">
+                <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-toggle="modal"
+                        data-target="#employee-delete-confirmation-modal">
                     <i class="ni ni-circle-08 pt-1"></i>
                 </button>
-                <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title=""
-                        title="">
+                <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-toggle="modal"
+                        data-target="#employee-delete-confirmation-modal">
                     <i class="ni ni-fat-remove pt-1"></i>
                 </button>
             </td>
@@ -29,3 +29,5 @@
     </tbody>
     @endforeach
 </table>
+<!-- Add Employee Modal -->
+@include('components.modals.DeleteConfirmationModal')
