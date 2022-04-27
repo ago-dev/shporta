@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,8 @@ Route::get('/employees', function() {
 	return view('employees');
 })->name('employees');
 
-Route::post('/employees', [RegisterController::class, 'create'])->name('create');
+Route::post('/employees', [EmployeeController::class, 'store'])->name('employee-create');
+Route::get('/employees', [EmployeeController::class, 'index'])->name("employees");
 
 //middleware
 Route::group(['middleware' => 'auth'], function () {

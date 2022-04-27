@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enum\UserRoleEnum;
+use DateTime;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -50,13 +51,19 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public static function store(array $data, $role): User {
-        return User::create([
+        $userData = [
             'first_name' => $data['firstName'],
             'last_name' => $data['lastName'],
             'email' => $data['email'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'role_id' => Role::getRoleByName($role)->id
-        ]);
+        ];
+
+        if ($role == UserRoleEnum::EMPLOYEE) {
+            error_log('we here');
+            $userData[] = ['date_created' => new DateTime()];
+        }
+        return User::create($userData);
     }
 }

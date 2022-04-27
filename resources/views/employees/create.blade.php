@@ -1,5 +1,10 @@
-<form role="form" method="POST" action="{{ route('register') }}">
+<form role="form" method="POST" action="{{ route('employee-create') }}">
     @csrf
+    @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+    @endif
     <!-- Add Employee -->
     <button type="button" class="btn btn-success action-btn" data-toggle="modal" data-target="#employeeModal">
         <i class="ni ni-circle-08"></i> Add Employee

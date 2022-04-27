@@ -70,17 +70,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        error_log('We here');
-        if (!isset($data['role'])) {
-            error_log('We customer');
-
-            return User::store($data, UserRoleEnum::CUSTOMER);
-        }else {
-            error_log('We employee');
-
-            $user = User::store($data, UserRoleEnum::EMPLOYEE);
-            Employee::store($data, $user);
-            return $user;
-        }
+        return User::store($data, UserRoleEnum::CUSTOMER);
     }
 }
