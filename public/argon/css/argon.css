@@ -7119,7 +7119,6 @@ button.close
     right: 0;
     bottom: 0;
     left: 0;
-
     background-color: #000;
 }
 .modal-backdrop.fade
@@ -7203,6 +7202,7 @@ button.close
     {
         max-width: 500px;
         margin: 1.75rem auto;
+        opacity:1 !important;
     }
     .modal-dialog-centered
     {
@@ -17538,7 +17538,7 @@ a.btn-icon-only
 }
 .close > span:not(.sr-only)
 {
-    font-size: 1.25rem;
+    font-size: 2.4rem;
     line-height: 17px;
 
     display: block;
@@ -21870,4 +21870,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
     bottom: 0;
 
     height: 3px;
+}
+.fade.modal-backdrop.show{
+    opacity: 0.8;
 }
