@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Enum\UserRoleEnum;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -66,6 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::store($data, UserRoleEnum::CUSTOMER);
+        $request = new UserStoreRequest($data);
+        return User::store($request, UserRoleEnum::CUSTOMER);
     }
 }

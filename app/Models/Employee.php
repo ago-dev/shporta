@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use App\Enum\ActivationEnum;
+use App\Http\Requests\EmployeeUpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
 
 class Employee extends Model
 {
@@ -49,10 +49,10 @@ class Employee extends Model
                 DB::raw('DATE_FORMAT(users.date_created, "%d %b %Y") AS dateCreated'))
             ->where('users.is_active', '=', ActivationEnum::IS_ACTIVE->value)
             ->orderBy('users.date_created', 'desc')
-            ->paginate(10);
+            ->paginate(5);
     }
 
-    public static function edit(Request $request) {
+    public static function edit(EmployeeUpdateRequest $request) {
         $employee = Employee::find($request['id']);
         $employeeType = $request['role'];
         if(isset($employeeType)) {

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enum\UserRoleEnum;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Http\Requests\UserStoreRequest;
 use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
@@ -30,20 +32,13 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param UserStoreRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(UserStoreRequest $request): RedirectResponse
     {
-        $userData = array("firstName" => $request->get("firstName"),
-            "lastName" => $request->get("lastName"),
-            "username" => $request->get("username"),
-            "email" => $request->get("email"),
-            "password" => $request->get("password"),
-            "role" => $request->get("role"));
-
-        $user = User::store($userData, UserRoleEnum::EMPLOYEE);
-        Employee::store($userData, $user);
+        $user = User::store($request, UserRoleEnum::EMPLOYEE);
+        Employee::store($request, $user);
         return redirect()->back()->with('message', 'Successfully created employee account!');
     }
 
@@ -61,10 +56,10 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param EmployeeUpdateRequest $request
      * @return RedirectResponse
      */
-    public function update(Request $request)
+    public function update(EmployeeUpdateRequest $request)
     {
         Employee::edit($request);
         return redirect()->back()->with('message', 'Successfully updated employee data!');

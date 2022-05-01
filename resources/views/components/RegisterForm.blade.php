@@ -5,7 +5,7 @@
         </div>
         <input class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}"
                placeholder="{{ __('First Name') }}" type="text" name="firstName"
-               value="{{ old('firstName', $employeeUpdateView ? $employee->firstName : '') }}" required autofocus>
+               value="{{ old('firstName') }}" required autofocus>
     </div>
     @if ($errors->has('firstName'))
         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -21,7 +21,7 @@
         </div>
         <input class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}"
                placeholder="{{ __('Last Name') }}" type="text" name="lastName"
-               value="{{ old('lastName', $employeeUpdateView ? $employee->lastName : '') }}" required autofocus>
+               value="{{ old('lastName') }}" required autofocus>
     </div>
     @if ($errors->has('lastName'))
         <span class="invalid-feedback" style="display: block;" role="alert">
@@ -37,12 +37,12 @@
         </div>
         <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                placeholder="{{ __('Username') }}" type="text" name="username"
-               value="{{ old('username', $employeeUpdateView ? $employee->username : '') }}" required autofocus>
+               value="{{ old('username') }}" required autofocus>
     </div>
     @if ($errors->has('username'))
         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('username') }}</strong>
-                            </span>
+            <strong>{{ $errors->first('username') }}</strong>
+        </span>
     @endif
 </div>
 
@@ -53,7 +53,7 @@
         </div>
         <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                placeholder="{{ __('Email') }}" type="email" name="email"
-               value="{{ old('email', $employeeUpdateView ? $employee->email : '') }}"
+               value="{{ old('email') }}"
                required>
     </div>
     @if ($errors->has('email'))
@@ -63,53 +63,46 @@
     @endif
 </div>
 
-@if(!$employeeUpdateView)
-    <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
-        <div class="input-group input-group-alternative">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-            </div>
-            <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                   placeholder="{{ __('Password') }}" type="password" name="password" required>
+<div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+    <div class="input-group input-group-alternative">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
         </div>
-        @if ($errors->has('password'))
-            <span class="invalid-feedback" style="display: block;" role="alert">
+        <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+               placeholder="{{ __('Password') }}" type="password" name="password" required>
+    </div>
+    @if ($errors->has('password'))
+        <span class="invalid-feedback" style="display: block;" role="alert">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
-        @endif
-    </div>
-    <br>
-    <div class="form-group">
-        <div class="input-group input-group-alternative">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-            </div>
-            <input class="form-control" placeholder="{{ __('Confirm Password') }}" type="password"
-                   name="password_confirmation" required>
+    @endif
+</div>
+<br>
+<div class="form-group">
+    <div class="input-group input-group-alternative">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
         </div>
+        <input class="form-control" placeholder="{{ __('Confirm Password') }}" type="password"
+               name="password_confirmation" required>
     </div>
-@endif
-
-@if($employeeView || $employeeUpdateView)
+</div>
+@if($employeeView)
     <div class="modal-body">
         <div class="form-group">
             <select class="form-select form-control" name="role">
-                <option value="{{ $employeeUpdateView ? $employee->employeeType : ''}}">
-                    {{ $employeeUpdateView ? $employee->employeeType : 'Select Employee Role'}}
-                    <!--temporary solution, will be dynamic dropdown-->
+                <option value="">
+                    Select Employee Role
                 </option>
                 <option value="Administrator">Administrator</option>
                 <option value="Customer Support">Customer Support</option>
             </select>
         </div>
-
     </div>
-    @if(!$employeeUpdateView)
-        <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
-    @endif
-@endif
 
-@if(!$employeeUpdateView && !$employeeView)
+    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+@endif
+@if(!$employeeView)
     <div class="row my-4">
         <div class="col-12">
             <div class="custom-control custom-control-alternative custom-checkbox">
@@ -142,7 +135,4 @@
     </div>
 @endif
 
-@if($employeeUpdateView)
-    <button type="submit" class="btn btn-danger mt-4">{{ __('Update') }}</button>
-@endif
 
