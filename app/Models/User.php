@@ -2,15 +2,23 @@
 
 namespace App\Models;
 
+use App\Http\Requests\UserStoreRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public $timestamps = false;
+
+    const CREATED_AT = 'date_created';
+    const UPDATED_AT = null;
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +26,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'username',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -30,7 +41,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -39,6 +49,29 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
+
+    public static function store(UserStoreRequest $request, $role): User {
+        $userData = [
+            'first_name' => $request['firstName'],
+            'last_name' => $request['lastName'],
+            'email' => $request['email'],
+            'username' => $request['username'],
+            'password' => Hash::make($request['password']),
+            'role_id' => Role::getRoleByName($role)->id
+        ];
+
+        return User::create($userData);
+    }
+
+    public static function edit(Request $data, $userId) {
+        $user = User::find($userId);
+        if ($user) {
+            $user->first_name = $data['firstName'];
+            $user->last_name  = $data['lastName'];
+            $user->username  = $data['username'];
+            $user->email     = $data['email'];
+            $user->save();
+        }
+    }
 }
