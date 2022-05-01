@@ -6111,8 +6111,8 @@ input[type='button'].btn-block
     z-index: 1;
 
     color: #fff;
-    border-color: #5e72e4;
-    background-color: #5e72e4;
+    border-color: #1f3a68;
+    background-color: #1f3a68;
 }
 
 .page-item.disabled .page-link
@@ -17593,7 +17593,7 @@ a.btn-icon-only
 
 .navbar-vertical.navbar-expand-xs.fixed-left + .main-content
 {
-    margin-left: 250px;
+    margin-left: 190px;
 }
 
 .navbar-vertical.navbar-expand-xs.fixed-right + .main-content
@@ -17617,11 +17617,11 @@ a.btn-icon-only
 {
     .navbar-vertical.navbar-expand-md.fixed-left + .main-content
     {
-        margin-left: 250px;
+        margin-left: 190px;
     }
     .navbar-vertical.navbar-expand-md.fixed-right + .main-content
     {
-        margin-right: 250px;
+        margin-right: 190px;
     }
 }
 
@@ -19506,7 +19506,7 @@ textarea[resize='horizontal']
         overflow-y: auto;
 
         width: 100%;
-        max-width: 250px;
+        max-width: 190px;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
     }

@@ -15,6 +15,6 @@
     </button>
 
     <!-- Add Employee Modal -->
-    @include('components.modals.CreateEmployeeModal')
+    @include('components.modals.CreateEmployeeModal', ['employee' => null])
     <br><br>
 </form>

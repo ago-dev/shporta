@@ -14,7 +14,6 @@
     @endif
 </div>
 
-
 <div class="form-group{{ $errors->has('lastName') ? ' has-danger' : '' }}">
     <div class="input-group input-group-alternative mb-3">
         <div class="input-group-prepend">
@@ -42,8 +41,8 @@
     </div>
     @if ($errors->has('username'))
         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('username') }}</strong>
-                            </span>
+            <strong>{{ $errors->first('username') }}</strong>
+        </span>
     @endif
 </div>
 
@@ -53,7 +52,8 @@
             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
         </div>
         <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-               placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}"
+               placeholder="{{ __('Email') }}" type="email" name="email"
+               value="{{ old('email') }}"
                required>
     </div>
     @if ($errors->has('email'))
@@ -62,6 +62,7 @@
                             </span>
     @endif
 </div>
+
 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
     <div class="input-group input-group-alternative">
         <div class="input-group-prepend">
@@ -72,8 +73,8 @@
     </div>
     @if ($errors->has('password'))
         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
     @endif
 </div>
 <br>
@@ -86,28 +87,29 @@
                name="password_confirmation" required>
     </div>
 </div>
-
 @if($employeeView)
     <div class="modal-body">
         <div class="form-group">
             <select class="form-select form-control" name="role">
-                <option value="">Select Employee Role</option>
+                <option value="">
+                    Select Employee Role
+                </option>
                 <option value="Administrator">Administrator</option>
                 <option value="Customer Support">Customer Support</option>
             </select>
         </div>
-
     </div>
-    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
 
-@else
+    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+@endif
+@if(!$employeeView)
     <div class="row my-4">
         <div class="col-12">
             <div class="custom-control custom-control-alternative custom-checkbox">
                 <input class="custom-control-input" id="customCheckRegister" type="checkbox" required>
                 <label class="custom-control-label" for="customCheckRegister">
-                                        <span>{{ __('I agree with the') }} <a
-                                                href="#">{{ __('Privacy Policy') }}</a></span>
+                                            <span>{{ __('I agree with the') }} <a
+                                                    href="#">{{ __('Privacy Policy') }}</a></span>
                 </label>
             </div>
         </div>
@@ -125,10 +127,12 @@
         <div class="text-muted text-center mt-2 mb-4"><small>{{ __('Sign up with') }}</small></div>
         <div class="text-center">
             <button class="btn btn-neutral btn-icon" disabled>
-                                    <span class="btn-inner--icon"><img
-                                            src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
+                                        <span class="btn-inner--icon"><img
+                                                src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
                 <span class="btn-inner--text">{{ __('Google') }}</span>
             </button>
         </div>
     </div>
 @endif
+
+

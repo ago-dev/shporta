@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmployeeController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -23,6 +22,8 @@ Route::get('/employees', function() {
 	return view('employees');
 })->name('employees');
 
+Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employee-update');
+Route::post('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employee-delete');
 Route::post('/employees', [EmployeeController::class, 'store'])->name('employee-create');
 Route::get('/employees', [EmployeeController::class, 'index'])->name("employees");
 

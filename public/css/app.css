@@ -11311,7 +11311,7 @@ textarea.form-control-lg {
 .shporta-logo {
   width: 40px;
   height: 40px;
-  background-image: url(/images/grain.svg?9f6a781d66a2c31d720acdbfbbe68b22);
+  background-image: url(/images/grain.svg?788754da753b3eb19689518629e97e51);
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.8;
@@ -11348,7 +11348,7 @@ footer {
 }
 
 .container-employee {
-  width: 80%;
+  width: 92%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -11366,14 +11366,14 @@ footer {
 }
 
 .emp-heading {
-  font-family: "Varela Round", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .employee-modal-title {
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-family: "Varela Round", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .employee-modal-title i {
   margin-right: 12px;
@@ -11399,4 +11399,8 @@ footer {
 
 .modal-content {
   padding: 20px;
+}
+
+table {
+  table-layout: fixed;
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "762141d5d0366ce0ede6a29305d85792",
+    "content-hash": "02bce2609ab932df8ff64a92a47f8d24",
     "packages": [
         {
             "name": "brick/math",
@@ -5573,6 +5573,64 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.4"
             },
             "time": "2021-12-08T09:12:39+00:00"
+        },
+        {
+            "name": "touhidurabir/laravel-model-sanitize",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/touhidurabir/laravel-model-sanitize.git",
+                "reference": "d46a827d16c23e71f42895340294b17ad97bb8c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/touhidurabir/laravel-model-sanitize/zipball/d46a827d16c23e71f42895340294b17ad97bb8c1",
+                "reference": "d46a827d16c23e71f42895340294b17ad97bb8c1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "illuminate/container": "^8.54",
+                "illuminate/database": "^8.54",
+                "illuminate/events": "^8.54",
+                "illuminate/support": "^8.54",
+                "orchestra/testbench": "^6.20",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Touhidurabir\\ModelSanitize\\ModelSanitizeServiceProvider"
+                    ],
+                    "aliases": {
+                        "ModelSanitize": "Touhidurabir\\ModelSanitize\\Facades\\ModelSanitize"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Touhidurabir\\ModelSanitize\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Touhidur Rahman",
+                    "email": "abircse06@gmail.com"
+                }
+            ],
+            "description": "A laravel package to handle sanitize process of model data to create/update model records.",
+            "support": {
+                "issues": "https://github.com/touhidurabir/laravel-model-sanitize/issues",
+                "source": "https://github.com/touhidurabir/laravel-model-sanitize/tree/1.1.1"
+            },
+            "time": "2022-04-22T06:58:48+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
