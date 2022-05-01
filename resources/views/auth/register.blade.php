@@ -14,7 +14,8 @@
                         </div>
                         <form role="form" method="POST" action="{{ route('register') }}">
                             @csrf
-                            @include('components.RegisterForm', ['employeeView' => false])
+                            @include('components.RegisterForm',
+                            ['employeeView' => false, 'employeeUpdateView' => false])
                         </form>
 
                     </div>

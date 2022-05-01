@@ -1,9 +1,9 @@
 <?php
 
+use App\Enum\UserRoleEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
-use App\Enum\UserRoleEnum;
-  
+
 return new class extends Migration
 {
     /**

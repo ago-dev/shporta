@@ -10,8 +10,9 @@ use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Response;
 
 class EmployeeController extends Controller
 {
@@ -22,12 +23,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = DB::table('employees')->join('users', 'employees.user_id', '=', 'users.id')
-                                                 ->join('employee_types', 'employees.employee_type_id', '=', 'employee_types.id')
-                                                 ->select('users.first_name as firstName', 'users.last_name as lastName', 'users.email as email',
-                                                          'users.date_created as dateCreated', 'employee_types.name as employeeType')
-                                                 ->orderBy('users.date_created', 'desc')
-                                                 ->get();
+        $employees = Employee::list();
         return view('employees', compact('employees'));
     }
 
@@ -35,9 +31,9 @@ class EmployeeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $userData = array("firstName" => $request->get("firstName"),
             "lastName" => $request->get("lastName"),
@@ -55,7 +51,7 @@ class EmployeeController extends Controller
      * Display the specified resource.
      *
      * @param Employee $employee
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Employee $employee)
     {
@@ -65,23 +61,24 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateEmployeeRequest $request
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(Request $request)
     {
-        //
+        Employee::edit($request);
+        return redirect()->back()->with('message', 'Successfully updated employee data!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function destroy(Employee $employee)
+    public function destroy(Request $request)
     {
-        //
+        Employee::deactivate($request['id']);
+        return redirect()->back()->with('message', 'Successfully deactivated employee account!');
     }
 }

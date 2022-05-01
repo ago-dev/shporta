@@ -5,14 +5,14 @@
             <div class="modal-header">
                 <h2 class="employee-modal-title text-blue text-capitalize">
                     <i class="ni ni-circle-08"></i>
-                    Create a new employee
+                    Add new employee
                 </h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            @include('components.RegisterForm', ['employeeView' => true])
+            @include('components.RegisterForm', ['employeeView' => true, 'employeeUpdateView' => false])
         </div>
     </div>
 </div>

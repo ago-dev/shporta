@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Enum\UserRoleEnum;
-use DateTime;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
@@ -60,10 +59,17 @@ class User extends Authenticatable implements MustVerifyEmail
             'role_id' => Role::getRoleByName($role)->id
         ];
 
-        if ($role == UserRoleEnum::EMPLOYEE) {
-            error_log('we here');
-            $userData[] = ['date_created' => new DateTime()];
-        }
         return User::create($userData);
+    }
+
+    public static function edit(Request $data, $userId) {
+        $user = User::find($userId);
+        if ($user) {
+            $user->first_name = $data['firstName'];
+            $user->last_name  = $data['lastName'];
+            $user->username  = $data['username'];
+            $user->email     = $data['email'];
+            $user->save();
+        }
     }
 }
