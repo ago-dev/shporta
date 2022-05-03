@@ -17,7 +17,6 @@ class Employee extends Model
     public $timestamps = false;
     protected $fillable = ['user_id', 'employee_type_id', 'is_active'];
 
-
     public static function store($data, $user): Employee {
         return Employee::create([
             'user_id' => $user['id'],

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('food_services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->string('name')->unique();
+            $table->string('description')->unique();
             $table->string('image');
         });
     }

@@ -31,7 +31,7 @@ function getPeerDependents(mainLanguage) {
 }
 
 function loadLanguages(arr, withoutDependencies) {
-	// If no argument is passed, load all components
+	// If no argument is passed, load all pages
 	if (!arr) {
 		arr = Object.keys(components.languages).filter(function (language) {
 			return language !== 'meta';

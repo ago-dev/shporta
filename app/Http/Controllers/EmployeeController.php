@@ -8,6 +8,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Employee;
+use App\Models\EmployeeType;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -26,7 +27,9 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::list();
-        return view('components.employees.employees', compact('employees'));
+        $employeeTypes = EmployeeType::all();
+        return view('pages.employees.employees',
+            compact('employees', 'employeeTypes'));
     }
 
     /**
