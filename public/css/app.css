@@ -11322,6 +11322,17 @@ textarea.form-control-lg {
   flex-direction: row;
 }
 
+.welcome-text {
+  position: relative;
+}
+.welcome-text .cl-underline {
+  position: absolute;
+  bottom: 10px;
+  width: 80%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .copyright {
   font-size: 15px;
 }
@@ -11345,6 +11356,32 @@ footer {
   color: #fffff0;
   opacity: 0.8;
   transition: 0.3s;
+}
+
+.support-nav {
+  font-family: "Roboto", sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px !important;
+}
+.support-nav .nav-item {
+  transition: 0.2s;
+}
+.support-nav .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: 0.2s;
+}
+.support-nav .nav-item:hover a {
+  color: #1c345d !important;
+}
+
+.nav-brand {
+  font-size: 24px;
+  padding-top: 4px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.background-1 {
+  background: #282537;
+  background-image: radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
 }
 
 .container-employee {

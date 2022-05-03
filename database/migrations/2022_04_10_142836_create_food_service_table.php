@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('food_services', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('food_service_id')
-                  ->references('id')
-                  ->on('food_services');
+            $table->string('name');
+            $table->string('description');
+            $table->string('image');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('food_service');
     }
 };
