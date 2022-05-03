@@ -21,10 +21,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('image')->default('no-pic.jpg');
             $table->timestamp('date_created')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('email_verified_at')->nullable();
             $table->foreignId('role_id')->nullable()->constrained();
             $table->boolean('is_active')->default(true);
+
             $table->rememberToken();
         });
     }
