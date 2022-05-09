@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {{ (request()->is('menus')) ? 'active' : '' }}" href="{{ route('menus') }}">
                         <i class="ni ni-album-2"></i> {{ __('Menus') }}
                     </a>
                 </li>

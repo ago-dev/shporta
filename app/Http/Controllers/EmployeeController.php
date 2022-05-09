@@ -8,6 +8,7 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Employee;
+use App\Models\EmployeeType;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -15,6 +16,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
@@ -26,7 +28,10 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::list();
-        return view('components.employees.employees', compact('employees'));
+        $employeeTypes = EmployeeType::all();
+        $modal = '';
+        return view('pages.employees.employees',
+            compact('employees', 'employeeTypes', 'modal'));
     }
 
     /**
@@ -62,7 +67,7 @@ class EmployeeController extends Controller
     public function update(EmployeeUpdateRequest $request)
     {
         Employee::edit($request);
-        return redirect()->back()->with('message', 'Successfully updated employee data!');
+        return redirect()->back()->with('message', 'Successfully updated employee account!');
     }
 
     /**

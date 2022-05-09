@@ -68,10 +68,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function edit(Request $data, $userId) {
         $user = User::find($userId);
         if ($user) {
-            $user->first_name = $data['firstName'];
-            $user->last_name  = $data['lastName'];
-            $user->username  = $data['username'];
-            $user->email     = $data['email'];
+            $user->first_name = $data['firstNameUpdate'];
+            $user->last_name  = $data['lastNameUpdate'];
+            $user->username  = $data['usernameUpdate'];
+            $user->email     = $data['emailUpdate'];
             $user->save();
         }
     }

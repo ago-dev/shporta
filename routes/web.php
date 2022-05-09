@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FoodServiceController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,17 +21,22 @@ Route::get('/forgot-password', function () {
 Auth::routes();
 
 /* Employee routes */
-Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employee-update');
-Route::post('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employee-delete');
-Route::post('/employees', [EmployeeController::class, 'store'])->name('employee-create');
-Route::get('/employees', [EmployeeController::class, 'index'])->name("employees");
+Route::put('/employees/{id}', [EmployeeController::class, 'update'])->name('employee-update')->middleware('auth');
+Route::post('/employees/{id}', [EmployeeController::class, 'destroy'])->name('employee-delete')->middleware('auth');
+Route::post('/employees', [EmployeeController::class, 'store'])->name('employee-create')->middleware('auth');
+Route::get('/employees', [EmployeeController::class, 'index'])->name("employees")->middleware('auth');
 
 /* Authenticated user profile routes */
-Route::post('/profile', [ImageController::class, 'store'])->name('image-upload');
+Route::post('/profile', [ImageController::class, 'store'])->name('image-upload')->middleware('auth');
 
 /* Restaurants routes */
-Route::get('/food-services', [FoodServiceController::class, 'index'])->name('food-services');
-Route::post('/food-services', [FoodServiceController::class, 'store'])->name('food-service-create');
+Route::get('/food-services', [FoodServiceController::class, 'index'])->name('food-services')->middleware('auth');
+Route::post('/food-services/{id}', [FoodServiceController::class, 'destroy'])->name('food-service-delete')->middleware('auth');
+Route::post('/food-services', [FoodServiceController::class, 'store'])->name('food-service-create')->middleware('auth');
+Route::put('/food-services/{id}', [FoodServiceController::class, 'update'])->name('food-service-update')->middleware('auth');
+
+/* Menu routes */
+Route::get('/menus', [MenuController::class, 'index'])->name('menus')->middleware('auth');
 
 /* Middleware */
 Route::group(['middleware' => 'auth'], function () {

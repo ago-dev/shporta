@@ -11417,6 +11417,11 @@ footer {
   font-size: 28px;
 }
 
+.table-image td, .table-image th {
+  vertical-align: middle !important;
+  white-space: unset !important;
+}
+
 .sm-blue {
   width: 80px;
   height: 30px;

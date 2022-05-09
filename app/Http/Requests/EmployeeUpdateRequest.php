@@ -24,11 +24,11 @@ class EmployeeUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'firstName' => 'required|string|max:50|min:2',
-            'lastName' => 'required|string|max:50|min:2',
-            'username' => 'required|string|max:50|min:2',
-            'role'=> 'required'
+            'emailUpdate' => 'required|email',
+            'firstNameUpdate' => 'required|string|max:50|min:2',
+            'lastNameUpdate' => 'required|string|max:50|min:2',
+            'usernameUpdate' => 'required|string|max:50|min:2',
+            'roleUpdate'=> 'required'
         ];
     }
 }

@@ -29,7 +29,7 @@ class ImageController extends Controller
 
         $imageName = time().'.'.$request->image->extension();
 
-        $request->image->move(public_path('images'), $imageName);
+        $request->image->move(public_path('images/profile_images'), $imageName);
 
         $user = auth()->user();
         $user->image = $imageName;

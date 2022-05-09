@@ -64,7 +64,7 @@ var getLoader = (function () {
 	}
 
 	/**
-	 * Creates a map of every components id to its entry.
+	 * Creates a map of every pages id to its entry.
 	 *
 	 * @param {Components} components
 	 * @returns {EntryMap}
@@ -213,7 +213,7 @@ var getLoader = (function () {
 	 */
 
 	/**
-	 * Creates an implicit DAG from the given components and dependencies and call the given `loadComponent` for each
+	 * Creates an implicit DAG from the given pages and dependencies and call the given `loadComponent` for each
 	 * component in topological order.
 	 *
 	 * @param {DependencyResolver} dependencyResolver
@@ -312,29 +312,29 @@ var getLoader = (function () {
 	}
 
 	/**
-	 * Returns an object which provides methods to get the ids of the components which have to be loaded (`getIds`) and
+	 * Returns an object which provides methods to get the ids of the pages which have to be loaded (`getIds`) and
 	 * a way to efficiently load them in synchronously and asynchronous contexts (`load`).
 	 *
 	 * The set of ids to be loaded is a superset of `load`. If some of these ids are in `loaded`, the corresponding
-	 * components will have to reloaded.
+	 * pages will have to reloaded.
 	 *
 	 * The ids in `load` and `loaded` may be in any order and can contain duplicates.
 	 *
 	 * @param {Components} components
 	 * @param {string[]} load
-	 * @param {string[]} [loaded=[]] A list of already loaded components.
+	 * @param {string[]} [loaded=[]] A list of already loaded pages.
 	 *
 	 * If a component is in this list, then all of its requirements will also be assumed to be in the list.
 	 * @returns {Loader}
 	 *
 	 * @typedef Loader
-	 * @property {() => string[]} getIds A function to get all ids of the components to load.
+	 * @property {() => string[]} getIds A function to get all ids of the pages to load.
 	 *
 	 * The returned ids will be duplicate-free, alias-free and in load order.
-	 * @property {LoadFunction} load A functional interface to load components.
+	 * @property {LoadFunction} load A functional interface to load pages.
 	 *
 	 * @typedef {<T> (loadComponent: (id: string) => T, chainer?: LoadChainer<T>) => T} LoadFunction
-	 * A functional interface to load components.
+	 * A functional interface to load pages.
 	 *
 	 * The `loadComponent` function will be called for every component in the order in which they have to be loaded.
 	 *
@@ -380,7 +380,7 @@ var getLoader = (function () {
 			});
 		}
 
-		// add components to reload
+		// add pages to reload
 
 		// A component x in `loaded` has to be reloaded if
 		//  1) a component in `load` modifies x.

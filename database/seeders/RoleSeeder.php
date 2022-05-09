@@ -15,6 +15,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
         DB::table('roles')->delete();
 
         Role::create(array('name' => 'Employee'));
