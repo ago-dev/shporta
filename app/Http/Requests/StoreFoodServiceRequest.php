@@ -25,7 +25,10 @@ class StoreFoodServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:50|min:2',
+            'description' => 'required|string|max:50|min:2',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'type' => 'required|string'
         ];
     }
 }

@@ -17,7 +17,11 @@
     </div>
 </div>
 
-@if(count($errors) > 0)
+@if($errors->has('firstName') ||
+    $errors->has('lastName')  ||
+    $errors->has('username')  ||
+    $errors->has('email')     ||
+    $errors->has('role'))
     <script type="text/javascript">
         $(document).ready(function () {
             $("#employeeModal").modal("show");

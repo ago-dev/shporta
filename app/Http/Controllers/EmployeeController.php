@@ -16,6 +16,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
 {
@@ -28,8 +29,9 @@ class EmployeeController extends Controller
     {
         $employees = Employee::list();
         $employeeTypes = EmployeeType::all();
+        $modal = '';
         return view('pages.employees.employees',
-            compact('employees', 'employeeTypes'));
+            compact('employees', 'employeeTypes', 'modal'));
     }
 
     /**
@@ -65,7 +67,7 @@ class EmployeeController extends Controller
     public function update(EmployeeUpdateRequest $request)
     {
         Employee::edit($request);
-        return redirect()->back()->with('message', 'Successfully updated employee data!');
+        return redirect()->back()->with('message', 'Successfully updated employee account!');
     }
 
     /**

@@ -16,6 +16,6 @@
 
     <!-- Add Employee Modal -->
     @include('pages.employees.modals.CreateEmployeeModal',
-            ['employee' => null, 'employeeTypes' => $employeeTypes])
+            ['employee' => null, 'employeeTypes' => $employeeTypes, 'modal' => $modal])
     <br><br>
 </form>

@@ -1,4 +1,4 @@
-<div class="modal fade" id="employee-update-modal" tabindex="-1" role="dialog" aria-labelledby="employee-update-modal-label"
+<div class="modal fade" id="employee-update-modal-{{$employee->id}}" tabindex="-1" role="dialog" aria-labelledby="employee-update-modal-label"
      aria-hidden="true">
     <form id="update-employee-form" role="form" method="POST" action="{{ route('employee-update', ['id' => $employee->id]) }}">
         @method('PUT')
@@ -20,69 +20,69 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                         </div>
-                        <input class="form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}"
-                               placeholder="{{ __('First Name') }}" type="text" name="firstName"
-                               value="{{ old('firstName', $employee->firstName) }}" required autofocus>
+                        <input class="form-control{{ $errors->has('firstNameUpdate') ? ' is-invalid' : '' }}"
+                               placeholder="{{ __('First Name') }}" type="text" name="firstNameUpdate"
+                               value="{{ old('firstNameUpdate', $employee->firstName) }}" required autofocus>
                     </div>
-                    @if ($errors->has('firstName'))
+                    @if ($errors->has('firstNameUpdate'))
                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('firstName') }}</strong>
+                                <strong>{{ $errors->first('firstNameUpdate') }}</strong>
                             </span>
                     @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('lastName') ? ' has-danger' : '' }}">
+                <div class="form-group{{ $errors->has('lastNameUpdate') ? ' has-danger' : '' }}">
                     <div class="input-group input-group-alternative mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                         </div>
-                        <input class="form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}"
-                               placeholder="{{ __('Last Name') }}" type="text" name="lastName"
-                               value="{{ old('lastName', $employee->lastName) }}" required autofocus>
+                        <input class="form-control{{ $errors->has('lastNameUpdate') ? ' is-invalid' : '' }}"
+                               placeholder="{{ __('Last Name') }}" type="text" name="lastNameUpdate"
+                               value="{{ old('lastNameUpdate', $employee->lastName) }}" required autofocus>
                     </div>
-                    @if ($errors->has('lastName'))
+                    @if ($errors->has('lastNameUpdate'))
                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('lastName') }}</strong>
+                                <strong>{{ $errors->first('lastNameUpdate') }}</strong>
                             </span>
                     @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
+                <div class="form-group{{ $errors->has('usernameUpdate') ? ' has-danger' : '' }}">
                     <div class="input-group input-group-alternative mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                         </div>
-                        <input class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
-                               placeholder="{{ __('Username') }}" type="text" name="username"
-                               value="{{ old('username', $employee->username) }}" required autofocus>
+                        <input class="form-control{{ $errors->has('usernameUpdate') ? ' is-invalid' : '' }}"
+                               placeholder="{{ __('Username') }}" type="text" name="usernameUpdate"
+                               value="{{ old('usernameUpdate', $employee->username) }}" required autofocus>
                     </div>
-                    @if ($errors->has('username'))
+                    @if ($errors->has('usernameUpdate'))
                         <span class="invalid-feedback" style="display: block;" role="alert">
-            <strong>{{ $errors->first('username') }}</strong>
+            <strong>{{ $errors->first('usernameUpdate') }}</strong>
         </span>
                     @endif
                 </div>
 
-                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                <div class="form-group{{ $errors->has('emailUpdate') ? ' has-danger' : '' }}">
                     <div class="input-group input-group-alternative mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                         </div>
-                        <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                               placeholder="{{ __('Email') }}" type="email" name="email"
-                               value="{{ old('email', $employee->email) }}"
+                        <input class="form-control{{ $errors->has('emailUpdate') ? ' is-invalid' : '' }}"
+                               placeholder="{{ __('Email') }}" type="email" name="emailUpdate"
+                               value="{{ old('emailUpdate', $employee->email) }}"
                                required>
                     </div>
-                    @if ($errors->has('email'))
+                    @if ($errors->has('emailUpdate'))
                         <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
+                                <strong>{{ $errors->first('emailUpdate') }}</strong>
                             </span>
                     @endif
                 </div>
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <select class="form-select form-control" name="role">
+                        <select class="form-select form-control" name="roleUpdate">
                             <option value="{{ $employee->employeeType }}">
                                 Select Employee Role
                             </option>
@@ -97,3 +97,15 @@
         </div>
     </form>
 </div>
+
+@if($errors->has('firstNameUpdate') ||
+    $errors->has('lastNameUpdate')  ||
+    $errors->has('usernameUpdate')  ||
+    $errors->has('emailUpdate')     ||
+    $errors->has('roleUpdate'))
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#employee-update-modal").modal("show");
+        });
+    </script>
+@endif

@@ -20,8 +20,8 @@
             <td colspan="2" class="text-right">{{$employee->dateCreated}}</td>
             <td colspan="2" class="td-actions text-center">
                 @include('components.buttons.UpdateDeleteButtonGroup',
-                          ['updateModalName' => 'employee-update-modal'],
-                          ['deleteModalName' => 'employee-delete-confirmation-modal'])
+                          ['updateModalName' => 'employee-update-modal-' . $employee->id],
+                          ['deleteModalName' => 'employee-delete-confirmation-modal-' . $employee->id])
             </td>
         </tr>
         @include('pages.employees.modals.DeleteConfirmationModal', ['employee' => $employee])

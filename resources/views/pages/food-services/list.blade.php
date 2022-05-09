@@ -22,12 +22,12 @@
                     <td>{{$foodService->foodServiceType->name}}</td>
                     <td>
                         @include('components.buttons.UpdateDeleteButtonGroup',
-                                  ['updateModalName' => 'food-service-update-modal'],
-                                  ['deleteModalName'=> 'food-service-delete-confirmation-modal'])
+                                  ['updateModalName' => 'food-service-update-modal-' . $foodService->id],
+                                  ['deleteModalName' => 'food-service-delete-confirmation-modal-' . $foodService->id])
                     </td>
+                      @include('pages.food-services.modals.DeleteFoodServiceModal', ['foodService' => $foodService])
+                      @include('pages.food-services.modals.UpdateFoodServiceModal', ['foodService' => $foodService])
                 </tr>
-                  @include('pages.food-services.modals.DeleteFoodServiceModal', ['foodService' => $foodService])
-                  @include('pages.food-services.modals.UpdateFoodServiceModal', ['foodService' => $foodService])
 
                 @empty
                     <tr>

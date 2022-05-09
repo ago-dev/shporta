@@ -53,9 +53,9 @@ class Employee extends Model
 
     public static function edit(EmployeeUpdateRequest $request) {
         $employee = Employee::find($request['id']);
-        $employeeType = $request['role'];
+        $employeeType = $request['roleUpdate'];
         if(isset($employeeType)) {
-            $employee->employee_type_id = EmployeeType::getTypeByName($request['role'])->id;
+            $employee->employee_type_id = EmployeeType::getTypeByName($request['roleUpdate'])->id;
             $employee->save();
         }
         User::edit($request, $employee['user_id']);

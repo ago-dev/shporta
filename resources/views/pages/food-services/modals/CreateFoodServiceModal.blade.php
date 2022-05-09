@@ -69,7 +69,10 @@
     </div>
 </div>
 
-@if(count($errors) > 0)
+@if($errors->has('name')         ||
+    $errors->has('description')  ||
+    $errors->has('type')         ||
+    $errors->has('image'))
     <script type="text/javascript">
         $(document).ready(function () {
             $("#foodServiceModal").modal("show");

@@ -11,7 +11,12 @@ class FoodServiceType extends Model
 
     public $timestamps = false;
 
-    public static function getTypeByName($type): FoodServiceType {
+    public function foodService()
+    {
+        return $this->hasMany('App\Models\FoodService');
+    }
+
+    public static function getTypeByName($type) {
         return FoodServiceType::where('name', $type)->first();
     }
 }

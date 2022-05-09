@@ -7,6 +7,6 @@
     </svg>
 </button>
 <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-toggle="modal"
-        data-target="#{{$deleteModalName}}" title="Delete">
+        data-target="#{{ $deleteModalName }}" title="Delete">
     <i class="ni ni-fat-remove pt-1"></i>
 </button>

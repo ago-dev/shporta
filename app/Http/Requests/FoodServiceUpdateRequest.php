@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeUpdateRequest extends FormRequest
+class FoodServiceUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class EmployeeUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'emailUpdate' => 'required|email',
-            'firstNameUpdate' => 'required|string|max:50|min:2',
-            'lastNameUpdate' => 'required|string|max:50|min:2',
-            'usernameUpdate' => 'required|string|max:50|min:2',
-            'roleUpdate'=> 'required'
+            'nameUpdate' => 'required|string|max:50|min:2',
+            'descriptionUpdate' => 'required|string|max:50|min:2'
         ];
     }
 }
