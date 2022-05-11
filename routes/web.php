@@ -37,6 +37,10 @@ Route::put('/food-services/{id}', [FoodServiceController::class, 'update'])->nam
 
 /* Menu routes */
 Route::get('/menus', [MenuController::class, 'index'])->name('menus')->middleware('auth');
+Route::post('/menus', [MenuController::class, 'store'])->name('menu-create')->middleware('auth');
+Route::post('/menus/{id}', [MenuController::class, 'destroy'])->name('menu-delete')->middleware('auth');
+
+
 
 /* Middleware */
 Route::group(['middleware' => 'auth'], function () {

@@ -5704,6 +5704,7 @@ input[type='button'].btn-block
     border-radius: .375rem;
     background-color: #fff;
     background-clip: border-box;
+    margin-bottom: 7px;
 }
 .card > hr
 {

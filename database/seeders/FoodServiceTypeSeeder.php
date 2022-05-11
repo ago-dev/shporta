@@ -15,7 +15,9 @@ class FoodServiceTypeSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('food_services')->delete();
         DB::table('food_service_types')->delete();
+
 
         FoodServiceType::create(array('name' => 'Full-Service Restaurant'));
         FoodServiceType::create(array('name' => 'Fast-Food'));

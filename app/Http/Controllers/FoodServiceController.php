@@ -9,6 +9,7 @@ use App\Http\Requests\StoreFoodServiceRequest;
 use App\Models\Employee;
 use App\Models\FoodService;
 use App\Models\FoodServiceType;
+use App\Models\Menu;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,7 @@ class FoodServiceController extends Controller
      */
     public function destroy(Request $request)
     {
+        Menu::deleteByFoodServiceId($request['id']);
         FoodService::destroy($request['id']);
         return redirect()->back()->with('message', 'Successfully removed Food Service!');
     }

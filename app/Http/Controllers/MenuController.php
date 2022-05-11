@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DeleteMenuRequest;
 use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
+use App\Models\FoodItem;
+use App\Models\FoodService;
 use App\Models\Menu;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 class MenuController extends Controller
 {
@@ -18,25 +23,27 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('pages.menus.menus');
+        $foodServices = FoodService::all();
+        $menus = Menu::paginate(5);
+        return view('pages.menus.menus', compact('foodServices', 'menus'));
     }
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMenuRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param  StoreMenuRequest  $request
      */
     public function store(StoreMenuRequest $request)
     {
-        //
+        $menu = Menu::store($request);
+        (new ImportController)->importMenu($request, $menu->id);
+        return redirect()->back()->with('message', 'Successfully uploaded menu!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param Menu $menu
+     * @return Response
      */
     public function show(Menu $menu)
     {
@@ -47,8 +54,8 @@ class MenuController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateMenuRequest  $request
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param Menu $menu
+     * @return Response
      */
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
@@ -58,11 +65,12 @@ class MenuController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menu  $menu
-     * @return \Illuminate\Http\Response
+     * @param DeleteMenuRequest $request
+     * @return RedirectResponse
      */
-    public function destroy(Menu $menu)
+    public function destroy(DeleteMenuRequest $request)
     {
-        //
+        Menu::deleteById($request);
+        return redirect()->back()->with('message', 'Successfully removed menu!');
     }
 }
