@@ -12,7 +12,7 @@
         </button>
 
         <!-- Add Food Service Modal -->
-        @include('pages.food-services.modals.CreateFoodServiceModal')
+        @include('pages.dashboard.food-services.modals.CreateFoodServiceModal')
         <br><br>
     </form>
 

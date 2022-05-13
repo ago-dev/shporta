@@ -25,7 +25,7 @@ class MenuController extends Controller
     {
         $foodServices = FoodService::all();
         $menus = Menu::paginate(5);
-        return view('pages.menus.menus', compact('foodServices', 'menus'));
+        return view('pages.dashboard.menus.menus', compact('foodServices', 'menus'));
     }
 
     /**

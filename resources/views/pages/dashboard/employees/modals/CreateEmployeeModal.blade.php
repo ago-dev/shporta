@@ -12,7 +12,7 @@
                 </button>
             </div>
 
-            @include('pages.RegisterForm', ['employeeView' => true])
+            @include('pages.dashboard.RegisterForm', ['employeeView' => true])
         </div>
     </div>
 </div>

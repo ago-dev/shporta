@@ -15,6 +15,6 @@
     </button>
 
     <!-- Add Employee Modal -->
-    @include('pages.menus.modals.CreateMenuModal');
+    @include('pages.dashboard.menus.modals.CreateMenuModal');
     <br><br>
 </form>

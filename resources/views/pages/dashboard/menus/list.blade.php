@@ -21,7 +21,7 @@
                         <thead>
                         <tr>
                             <th scope="col">Name</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Price ($)</th>
                             <th scope="col">Category</th>
                         </tr>
                         </thead>
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        @include('pages.menus.modals.DeleteMenuModal', ['menu' => $menu])
+        @include('pages.dashboard.menus.modals.DeleteMenuModal', ['menu' => $menu])
     @empty
         <div>
             <h1 class="text-white-50">No menus found!</h1>

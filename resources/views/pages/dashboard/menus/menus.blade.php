@@ -8,7 +8,7 @@
         <p class="text-light">Add, update or remove menus in a matter of seconds</p>
         <br>
 
-        @include('pages.menus.create')
-        @include('pages.menus.list')
+        @include('pages.dashboard.menus.create')
+        @include('pages.dashboard.menus.list')
     </div>
 @endsection

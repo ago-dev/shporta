@@ -8,8 +8,8 @@
         <p class="text-light">Get the best out of your data in simple clicks</p>
         <br>
 
-        @include('pages.employees.create')
-        @include('pages.employees.list')
+        @include('pages.dashboard.employees.create')
+        @include('pages.dashboard.employees.list')
 
     </div>
 @endsection

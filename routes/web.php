@@ -1,20 +1,19 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FoodServiceController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /* Authentication routes */
-Route::get('/', function () {
-    return view('dashboard');
-})->middleware('auth');
+Route::get('/', [LoginController::class, 'authenticated'])->middleware('auth');
 
 Auth::routes(['verify' => true]);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/forgot-password', function () {
     return view('auth.passwords.email');
 })->middleware('guest')->name('password.request');

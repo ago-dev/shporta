@@ -10,7 +10,7 @@
         according our reports.</small></p>
         <br>
 
-        @include('pages.food-services.create')
-        @include('pages.food-services.list')
+        @include('pages.dashboard.food-services.create')
+        @include('pages.dashboard.food-services.list')
     </div>
 @endsection

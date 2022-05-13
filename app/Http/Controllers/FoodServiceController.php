@@ -19,7 +19,7 @@ class FoodServiceController extends Controller
     {
         $foodServiceTypes = FoodServiceType::all();
         $foodServices = FoodService::list();
-        return view('pages.food-services.food-services',
+        return view('pages.dashboard.food-services.food-services',
             compact(['foodServices', 'foodServices'], ['foodServiceTypes', 'foodServiceTypes']));
     }
 

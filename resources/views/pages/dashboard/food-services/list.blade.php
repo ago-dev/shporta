@@ -25,8 +25,8 @@
                                   ['updateModalName' => 'food-service-update-modal-' . $foodService->id],
                                   ['deleteModalName' => 'food-service-delete-confirmation-modal-' . $foodService->id])
                     </td>
-                      @include('pages.food-services.modals.DeleteFoodServiceModal', ['foodService' => $foodService])
-                      @include('pages.food-services.modals.UpdateFoodServiceModal', ['foodService' => $foodService])
+                      @include('pages.dashboard.food-services.modals.DeleteFoodServiceModal', ['foodService' => $foodService])
+                      @include('pages.dashboard.food-services.modals.UpdateFoodServiceModal', ['foodService' => $foodService])
                 </tr>
 
                 @empty

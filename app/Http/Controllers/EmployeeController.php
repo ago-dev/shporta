@@ -29,7 +29,7 @@ class EmployeeController extends Controller
     {
         $employees = Employee::list();
         $employeeTypes = EmployeeType::all();
-        return view('pages.employees.employees',
+        return view('pages.dashboard.employees.employees',
             compact('employees', 'employeeTypes'));
     }
 
