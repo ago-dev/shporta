@@ -29,9 +29,8 @@ class EmployeeController extends Controller
     {
         $employees = Employee::list();
         $employeeTypes = EmployeeType::all();
-        $modal = '';
-        return view('pages.employees.employees',
-            compact('employees', 'employeeTypes', 'modal'));
+        return view('pages.dashboard.employees.employees',
+            compact('employees', 'employeeTypes'));
     }
 
     /**

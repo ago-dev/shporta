@@ -15,7 +15,7 @@
     </button>
 
     <!-- Add Employee Modal -->
-    @include('pages.employees.modals.CreateEmployeeModal',
-            ['employee' => null, 'employeeTypes' => $employeeTypes, 'modal' => $modal])
+    @include('pages.dashboard.employees.modals.CreateEmployeeModal',
+            ['employee' => null, 'employeeTypes' => $employeeTypes])
     <br><br>
 </form>

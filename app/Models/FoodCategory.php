@@ -10,4 +10,13 @@ class FoodCategory extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'name'
+    ];
+
+    public static function getCategoryByName($category)
+    {
+        return FoodCategory::where('name', $category)->first();
+    }
 }

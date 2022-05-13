@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Varela+Round&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -11311,10 +11312,10 @@ textarea.form-control-lg {
 .shporta-logo {
   width: 40px;
   height: 40px;
-  background-image: url(/images/grain.svg?788754da753b3eb19689518629e97e51);
+  background-image: url(/images/shporta.png?c87002362989467500182de92c185635);
   background-repeat: no-repeat;
   background-size: contain;
-  opacity: 0.8;
+  margin-right: 5px;
 }
 
 .brand-container {
@@ -11384,6 +11385,202 @@ footer {
   background-image: radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
 }
 
+.cust-container {
+  width: 1170px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cust-navbar,
+.cust-navbar > .cust-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .cust-navbar,
+.cust-navbar > .cust-container {
+    display: block;
+  }
+}
+
+.cust-navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  padding: 1rem 1.15rem;
+  /*
+  |-----------------------------------
+  | Start navbar logo or brand etc..
+  |-----------------------------------
+  */
+  /*
+  |-----------------------------------
+  | Start navbar menu
+  |-----------------------------------
+  */
+}
+@media (min-width: 576px) {
+  .cust-navbar .cust-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .cust-navbar .cust-container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .cust-navbar .cust-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .cust-navbar .cust-container {
+    max-width: 1140px;
+  }
+}
+.cust-navbar .cust-navbar-header {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+}
+.cust-navbar .cust-navbar-header .cust-navbar-toggler {
+  cursor: pointer;
+  border: none;
+  display: none;
+  outline: none;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-header .cust-navbar-toggler {
+    display: block;
+  }
+}
+.cust-navbar .cust-navbar-header .cust-navbar-toggler span {
+  height: 2px;
+  width: 22px;
+  background-color: #929aad;
+  display: block;
+}
+.cust-navbar .cust-navbar-header .cust-navbar-toggler span:not(:last-child) {
+  margin-bottom: 0.2rem;
+}
+.cust-navbar .cust-navbar-header > a {
+  font-weight: 500;
+  color: #3c4250;
+}
+.cust-navbar .cust-navbar-menu {
+  display: flex;
+  align-items: center;
+  flex-basis: auto;
+  flex-grow: 1;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-menu {
+    display: none;
+    text-align: center;
+  }
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav {
+  margin-left: auto;
+  flex-direction: row;
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-menu .cust-navbar-nav {
+    width: 100%;
+    display: block;
+    border-top: 1px solid #EEE;
+    margin-top: 1rem;
+  }
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav > li > a {
+  color: #3c4250;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav > li > a:hover {
+  color: #66f;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-menu .cust-navbar-nav > li > a {
+    border-bottom: 1px solid #eceef3;
+  }
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav > li.active a {
+  color: #66f;
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav .cust-navbar-dropdown .dropdown {
+  list-style: none;
+  position: absolute;
+  top: 150%;
+  left: 0;
+  background-color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  min-width: 160px;
+  width: auto;
+  white-space: nowrap;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+  border-radius: 0.75rem;
+  display: none;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-menu .cust-navbar-nav .cust-navbar-dropdown .dropdown {
+    position: relative;
+    box-shadow: none;
+  }
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav .cust-navbar-dropdown .dropdown li a {
+  color: #3c4250;
+  padding: 0.25rem 1rem;
+  display: block;
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav .cust-navbar-dropdown .dropdown.show {
+  display: block !important;
+}
+.cust-navbar .cust-navbar-menu .cust-navbar-nav .dropdown > .separator {
+  height: 1px;
+  width: 100%;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  background-color: #eceef3;
+}
+.cust-navbar .cust-navbar-dropdown {
+  position: relative;
+}
+
+.cust-navbar .cust-navbar-header > a span {
+  color: #66f;
+}
+
+.cust-navbar .cust-navbar-header h4, .cust-navbar .cust-navbar-header .h4 {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+@media (max-width: 768px) {
+  .cust-navbar .cust-navbar-header h4, .cust-navbar .cust-navbar-header .h4 {
+    font-size: 1.05rem;
+  }
+}
+
 .container-employee {
   width: 92%;
   margin: 0 auto;
@@ -11445,4 +11642,49 @@ footer {
 
 table {
   table-layout: fixed;
+}
+
+.myaccordion {
+  max-width: 100%;
+  margin: 50px auto;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.myaccordion .card,
+.myaccordion .card:last-child .card-header {
+  border: none;
+}
+
+.myaccordion .card-header {
+  border-bottom-color: #EDEFF0;
+  background: transparent;
+}
+
+.myaccordion .fa-stack {
+  font-size: 18px;
+}
+
+.accordion-btn {
+  width: 100%;
+  font-weight: bold;
+  color: #004987;
+  padding: 0;
+}
+
+.myaccordion .btn-link:hover,
+.myaccordion .btn-link:focus {
+  text-decoration: none;
+}
+
+.myaccordion li + li {
+  margin-top: 10px;
+}
+
+.fa-plus:before, .fa-minus:before {
+  margin-right: 14px !important;
+}
+
+.accordion-btn:hover, .accordion-btn:active, .accordion-btn:focus {
+  box-shadow: none !important;
+  transform: none;
 }
