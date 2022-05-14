@@ -7,9 +7,14 @@ use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Requests\FoodServiceUpdateRequest;
 use App\Http\Requests\StoreFoodServiceRequest;
 use App\Models\Employee;
+use App\Models\FoodCategory;
+use App\Models\FoodItem;
 use App\Models\FoodService;
 use App\Models\FoodServiceType;
 use App\Models\Menu;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -21,6 +26,21 @@ class FoodServiceController extends Controller
         $foodServices = FoodService::list();
         return view('pages.dashboard.food-services.food-services',
             compact(['foodServices', 'foodServices'], ['foodServiceTypes', 'foodServiceTypes']));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param $id
+     * @return Application|Factory|View
+     */
+    public function show($id)
+    {
+        $foodService = FoodService::where('id', $id)->first();
+        $menu = Menu::where('food_service_id', $foodService->id)->first();
+        $foodCategories = FoodCategory::all();
+        return view('pages.customer.menus.menu',
+            compact('foodService', 'menu', 'foodCategories'));
     }
 
     public function store(StoreFoodServiceRequest $request)

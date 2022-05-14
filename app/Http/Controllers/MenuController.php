@@ -42,12 +42,13 @@ class MenuController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Menu $menu
-     * @return Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function show(Menu $menu)
+    public function show($id)
     {
-        //
+        $menu = Menu::where('id', $id);
+        return view('pages.customer.menus.menu', compact('menu'));
     }
 
     /**

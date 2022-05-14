@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FoodItemController;
 use App\Http\Controllers\FoodServiceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,7 +41,9 @@ Route::get('/menus', [MenuController::class, 'index'])->name('menus')->middlewar
 Route::post('/menus', [MenuController::class, 'store'])->name('menu-create')->middleware('auth');
 Route::post('/menus/{id}', [MenuController::class, 'destroy'])->name('menu-delete')->middleware('auth');
 
-
+/* Customer routes */
+Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/food-service/{id}', [FoodServiceController::class, 'show'])->name('food-service.show');
 
 /* Middleware */
 Route::group(['middleware' => 'auth'], function () {
