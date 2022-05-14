@@ -72,6 +72,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return false;
     }
 
+    public function fullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
     public static function store(UserStoreRequest $request, $role): User {
         $userData = [
             'first_name' => $request['firstName'],
