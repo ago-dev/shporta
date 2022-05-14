@@ -1,49 +1,39 @@
-<nav class="navbar">
-    <div class="container">
+<nav class="cust-navbar">
+    <div class="cust-container">
 
-        <div class="navbar-header">
-            <button class="navbar-toggler" data-toggle="open-navbar1">
+        <div class="cust-navbar-header">
+            <button class="cust-navbar-toggler" data-toggle="open-cust-navbar1">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <a href="#">
-                <h4>Awesome<span>logo</span></h4>
+            <a class="nav-brand-link" href="{{ route('home') }}">
+                <div class="brand-container">
+                    <div class="shporta-logo"></div>
+                    <h1 class="nav-brand">Shporta
+                    </h1>
+                    <span class="nav-brand-slogan">Love your hunger</span>
+                </div>
             </a>
         </div>
 
-        <div class="navbar-menu" id="open-navbar1">
-            <ul class="navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="navbar-dropdown">
-                    <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
-                        Categories <i class="fa fa-angle-down"></i>
+        <div class="cust-navbar-menu" id="open-cust-navbar1">
+            <ul class="cust-navbar-nav">
+                <li class="active"><a href="#">
+                        <a href="#"> <i class="ni ni-planet nav-icon"></i> Home</a></li>
+                <li class="cust-navbar-dropdown">
+                    <a href="#">
+                        <i class="ni ni-cart nav-icon"></i> Cart
                     </a>
-                    <ul class="dropdown" id="my-dropdown-id">
-                        <li><a href="#">Actions</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="separator"></li>
-                        <li><a href="#">Seprated link</a></li>
-                        <li class="separator"></li>
-                        <li><a href="#">One more seprated link.</a></li>
-                    </ul>
+
+                    <div class="cart-icon">0</div>
                 </li>
-                <li class="navbar-dropdown">
-                    <a href="#" class="dropdown-toggler" data-dropdown="blog">
-                        Blog <i class="fa fa-angle-down"></i>
+                <li class="cust-navbar-dropdown">
+                    <a href="#">
+                        <i class="ni ni-settings nav-icon"></i> Guide
                     </a>
-                    <ul class="dropdown" id="blog">
-                        <li><a href="#">Some category</a></li>
-                        <li><a href="#">Some another category</a></li>
-                        <li class="separator"></li>
-                        <li><a href="#">Seprated link</a></li>
-                        <li class="separator"></li>
-                        <li><a href="#">One more seprated link.</a></li>
-                    </ul>
                 </li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Signin</a></li>
+                <li><a href="#"><i class="ni ni-user-run nav-icon"></i> Log out</a></li>
             </ul>
         </div>
     </div>

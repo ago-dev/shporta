@@ -31,6 +31,11 @@ class FoodItem extends Model
         return $this->belongsTo(FoodCategory::class);
     }
 
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
+
     public static function deleteByMenuId($id) {
         $foodItems = FoodItem::where('menu_id', $id);
         $foodItems->delete();

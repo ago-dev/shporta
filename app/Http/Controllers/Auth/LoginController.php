@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::WELCOME;
 
     /**
      * Create a new controller instance.
@@ -52,10 +52,10 @@ class LoginController extends Controller
         $employeeRoleId = Role::getRoleByName(UserRoleEnum::EMPLOYEE)->id;
 
         if($user->role_id == $employeeRoleId) {
-            return view('pages.dashboard.dashboard');
+            return redirect('/home');
 
         } else {
-            return view('pages.customer.welcome');
+            return redirect('/welcome');
         }
     }
 }

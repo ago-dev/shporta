@@ -51,7 +51,12 @@ class FoodService extends Model
 
     public function foodServiceType()
     {
-        return $this->belongsTo('App\Models\FoodServiceType');
+        return $this->belongsTo(FoodServiceType::class);
+    }
+
+    public function menu()
+    {
+        return $this->hasOne(Menu::class);
     }
 
     public static function store(StoreFoodServiceRequest $request): FoodService

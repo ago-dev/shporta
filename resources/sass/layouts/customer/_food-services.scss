@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+.food-services-container {
+    padding-top: 40px;
+
+    img{
+        height:150px;
+        width:100%;
+    }
+
+    .item{
+        padding-left:5px;
+        padding-right:5px;
+    }
+    .item-card{
+        transition:0.5s;
+        cursor:pointer;
+    }
+    .item-card-title{
+        font-size:15px;
+        transition:1s;
+        cursor:pointer;
+    }
+    .item-card-title i{
+        font-size:15px;
+        transition:1s;
+        cursor:pointer;
+        color:#ffa710
+    }
+    .card-title i:hover{
+        transform: scale(1.25) rotate(100deg);
+        color:#18d4ca;
+
+    }
+    .card:hover{
+        transform: scale(1.05);
+        box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+    }
+    .card-text{
+        height:80px;
+    }
+
+    .card::before, .card::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: scale3d(0, 0, 1);
+        transition: transform .3s ease-out 0s;
+        background: rgba(255, 255, 255, 0.1);
+        content: '';
+        pointer-events: none;
+    }
+    .card::before {
+        transform-origin: left top;
+    }
+    .card::after {
+        transform-origin: right bottom;
+    }
+    .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+        transform: scale3d(1, 1, 1);
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+    .form-control-underlined {
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-radius: 0;
+        padding-left: 0;
+    }
+
+    .main {
+        width: 50%;
+        margin-bottom: 10px;
+    }
+
+    /* Bootstrap 4 text input with search icon */
+
+    .has-search .form-control {
+        padding: 15px 10px 10px 32px;
+        border-radius: 30px;
+        border: none;
+        background-color: rgba(255, 255, 255, .8);
+    }
+
+    .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+        color: #aaa;
+        padding-top: 7px;
+    }
+}
+
+.welcome-text-2{
+    h1 {
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: left;
+        font-family: $font-roboto;
+        color: #fff;
+        opacity: .5;
+    }
+
+    .cl-underline-2 {
+        position: absolute;
+        bottom: 5px;
+        width: 80%;
+        height: 10px;
+        background-color: rgba(29, 209, 161, .3);
+    }
+}
+
+.food-service-title {
+    font-size: 24px;
+    font-family: $font-bhs;
+    color: #303952;
+}
+
+.food-service-card {
+    background-color: #dff9fb;
+    color: #303952;
+    border: solid 3px rgba(29, 209, 161, .3);
+    border-radius: 10px;
+
+    img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    p {
+        opacity: .6;
+        font-size: 14px;
+        font-family: $font-roboto;
+    }
+}
+
+.food-items {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.food-item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 5px;
+    height: 50px;
+    line-height: 50px;
+    margin: 5px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    width: 200px;
+    background: #ffeaa7; /* Old browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+    cursor: pointer;
+
+    box-shadow: 2px 2px 3px #666;
+    user-select: none;
+    color: rgba(45, 52, 54, .8);
+
+    background: linear-gradient(75deg, #ffffff, #ff7fa5, #1992fc, #ffffff);
+    background-size: 600%;
+
+    &:before {
+        position: absolute;
+        content: "";
+        left: 4px;
+        top: 50%;
+        margin-top: -10px;
+        border-left: 20px solid #ccc;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    &:after {
+        position: absolute;
+        content: "";
+        left: 4px;
+        top: 50%;
+        margin-top: -10px;
+        border-left: 5px solid white;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+    }
+
+    &:hover {
+        border-color: #777;
+        box-shadow: 3px 3px 5px #333;
+        transition: .3s;
+
+        background: #eeeeee; /* Old browsers */
+        background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 25%, #ffffff 75%, #dddddd 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dddddd), color-stop(25%,#ffffff), color-stop(75%,#ffffff), color-stop(100%,#dddddd)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #dddddd 0%,#ffffff 25%,#ffffff 75%,#dddddd 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #dddddd 0%,#ffffff 25%,#ffffff 75%,#dddddd 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #dddddd 0%,#ffffff 25%,#ffffff 75%,#dddddd 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #dddddd 0%,#ffffff 25%,#ffffff 75%,#dddddd 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+
+        &:before {
+            border-left-color: #777;
+        }
+    }
+
+    &:active {
+        background: #eee;
+        box-shadow: inset 0 1px 1px #666;
+    }
+}
+
+.food-item-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.food-item-price {
+    font-size: 14px;
+}
+
+.food-category-title {
+    color: #c7ecee;
+    font-size: 20px;
+    font-family: $font-bhs;
+}
+
+.menu-heading {
+    opacity: .7;
+    font-family: $font-roboto;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.menu-name {
+    color: #c7ecee;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}

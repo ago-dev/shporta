@@ -4,14 +4,15 @@ $font-family: 'Roboto', sans-serif;
 $font-size-base: 0.925rem;
 $base-color: #66f;
 $text-dark: #3c4250;
+$text-light: #fff;
 $border-color: #eceef3;
 
-$navbar-body-color: #fff;
+$navbar-body-color: #303952;
 $navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$navbar-padding-y: 1rem;
+$navbar-padding-y: 1.5rem;
 $navbar-padding-x: 1.15rem;
 
-$navbar-link-hover: $base-color;
+$navbar-link-hover: #fff;
 $navbar-link-padding-y: 0.5rem;
 $navbar-link-padding-x: 1rem;
 
@@ -25,6 +26,9 @@ $navbar-dropdown-item-padding-x: 1rem;
 $navbar-dropdown-separator-margin-y: 9px;
 $navbar-dropdown-separator-color: $border-color;
 
+a {
+    text-decoration: none;
+}
 
 .cust-container {
     width: 1170px;
@@ -40,6 +44,12 @@ $navbar-dropdown-separator-color: $border-color;
 }
 
 // Start navbar
+.cust-navbar {
+    border-bottom: solid 1px rgba(255, 255, 255, .1);
+    a {
+        font-size: 15px;
+    }
+}
 
 .cust-navbar,
 .cust-navbar > .cust-container {
@@ -48,6 +58,7 @@ $navbar-dropdown-separator-color: $border-color;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    font-family: $font-family;
     @media (max-width: 768px) {
         display: block;
     }
@@ -103,7 +114,7 @@ $navbar-dropdown-separator-color: $border-color;
             span {
                 height: 2px;
                 width: 22px;
-                background-color: lighten($text-dark, 35%);
+                background-color: lighten(#fff, 35%);
                 display: block;
             }
             span:not(:last-child) {
@@ -113,7 +124,7 @@ $navbar-dropdown-separator-color: $border-color;
 
         > a {
             font-weight: 500;
-            color: $text-dark;
+            color: #fff;
         }
     }
 
@@ -150,8 +161,10 @@ $navbar-dropdown-separator-color: $border-color;
             }
 
             > li {
+                position: relative;
                 > a {
-                    color: $text-dark;
+                    color: #fff;
+                    opacity: .8;
                     text-decoration: none;
                     display: inline-block;
                     padding: $navbar-link-padding-y $navbar-link-padding-x;
@@ -164,7 +177,8 @@ $navbar-dropdown-separator-color: $border-color;
                 }
                 &.active {
                     a {
-                        color: $base-color;
+                        transition: .3s;
+                        font-weight: bold;
                     }
                 }
             }
@@ -191,7 +205,7 @@ $navbar-dropdown-separator-color: $border-color;
                     }
                     li {
                         a {
-                            color: $text-dark;
+                            color: #fff;
                             padding: $navbar-dropdown-item-padding-y
                             $navbar-dropdown-item-padding-x;
                             display: block;
@@ -220,15 +234,91 @@ $navbar-dropdown-separator-color: $border-color;
     }
 }
 
-
-// Custom
-.cust-navbar .cust-navbar-header > a span {
-    color: $base-color;
-}
 .cust-navbar .cust-navbar-header h4 {
     font-weight: 500;
     font-size: 1.25rem;
     @media (max-width: 768px) {
         font-size: 1.05rem;
+    }
+}
+
+.nav-icon {
+    font-size: 14px;
+    opacity: .4;
+    margin-right: 2px;
+}
+
+.cart-icon {
+    position: absolute;
+    display: flex;
+    top: -5px;
+    left: 14px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #22a6b3;
+    font-size: 12px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@mixin dots($count) {
+    $text-shadow: ();
+    @for $i from 0 through $count {
+        $text-shadow: $text-shadow,
+        (-.5+(random()) * 3) + em
+        (-.5+(random()) * 3) + em
+        7px
+        hsla(random() * 360, 100%, 50%,.9);
+    }
+    text-shadow: $text-shadow;
+}
+
+head::before, head::after,
+body::before, body::after {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    content: '.';
+    mix-blend-mode: screen;
+    animation: 44s -27s move infinite ease-in-out alternate;
+}
+
+
+body::before {
+    @include dots(40);
+    animation-duration: 44s;
+    animation-delay: -27s;
+}
+
+body::after {
+    @include dots(40);
+    animation-duration: 43s;
+    animation-delay: -32s;
+}
+
+head::before {
+    @include dots(40);
+    animation-duration: 42s;
+    animation-delay: -23s;
+}
+
+head::after {
+    @include dots(40);
+    animation-duration: 41s;
+    animation-delay: -19s;
+}
+
+
+@keyframes move {
+    from {
+        transform: rotate(0deg) scale(12) translateX(-20px);
+    }
+    to {
+        transform: rotate(360deg) scale(18) translateX(20px);
     }
 }

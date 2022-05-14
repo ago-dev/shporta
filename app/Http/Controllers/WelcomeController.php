@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\FoodService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,6 +22,7 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('pages.customer.welcome');
+        $foodServices = FoodService::all();
+        return view('pages.customer.welcome', compact('foodServices'));
     }
 }
