@@ -620,7 +620,7 @@ if (typeof module !== 'undefined' && module.exports) {
 	module.exports = Prism;
 }
 
-// hack for components to work correctly in node.js
+// hack for pages to work correctly in node.js
 if (typeof global !== 'undefined') {
 	global.Prism = Prism;
 }

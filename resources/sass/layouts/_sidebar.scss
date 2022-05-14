@@ -1,1 +1,28 @@
+.support-nav {
+    font-family: $font-roboto;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px !important;
+    .nav-item {
+        transition: .2s;
+        &:hover {
+            background-color: rgba(255, 255, 255, .8);
+            transition: .2s;
+            a {
+                color: #1c345d !important;
+            }
+        }
+    }
+}
 
+.nav-brand {
+    font-size: 24px;
+    padding-top: 4px;
+    color: rgba(255, 255, 255, .8);
+}
+
+.background-1 {
+    background: #282537;
+    background-image: -webkit-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
+    background-image: -moz-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
+    background-image: -o-radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
+    background-image: radial-gradient(top, circle cover, #3c3b52 0%, #252233 80%);
+}

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Enum\UserRoleEnum;
+use App\Models\Role;
+use Illuminate\View\View;
+
 class HomeController extends Controller
 {
     /**
@@ -18,10 +22,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function index()
     {
-        return view('dashboard');
+        return view('pages.dashboard.dashboard');
     }
 }

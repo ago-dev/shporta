@@ -32,6 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'role_id',
+        'image'
     ];
 
     /**
@@ -51,6 +52,26 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
     ];
 
+    public function hasAnyRole($roles){
+        if (is_array($roles)){
+            foreach ($roles as $role) {
+                if ($this->hasRole($role)) {
+                    return true;
+                }
+            }
+        } else if ($this->hasRole($roles)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function hasRole($role){
+        if ($this->roles()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
+    }
+
     public static function store(UserStoreRequest $request, $role): User {
         $userData = [
             'first_name' => $request['firstName'],
@@ -67,10 +88,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function edit(Request $data, $userId) {
         $user = User::find($userId);
         if ($user) {
-            $user->first_name = $data['firstName'];
-            $user->last_name  = $data['lastName'];
-            $user->username  = $data['username'];
-            $user->email     = $data['email'];
+            $user->first_name = $data['firstNameUpdate'];
+            $user->last_name  = $data['lastNameUpdate'];
+            $user->username  = $data['usernameUpdate'];
+            $user->email     = $data['emailUpdate'];
             $user->save();
         }
     }

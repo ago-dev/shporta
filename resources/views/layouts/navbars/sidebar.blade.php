@@ -1,4 +1,4 @@
-<nav class="support-nav navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-gradient-dark rounded-end" id="sidenav-main">
+<nav class="support-nav background-1 navbar navbar-vertical fixed-left navbar-expand-md navbar-light" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -50,29 +50,29 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                    <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}" href="{{ route('home') }}">
+                        <i class="ni ni-tv-2"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('employees') }}">
-                        <i class="ni ni-single-02 text-blue"></i> {{ __('Employees') }}
+                <li class="nav-item ">
+                    <a class="nav-link {{ (request()->is('employees')) ? 'active' : '' }}" href="{{ route('employees') }}">
+                        <i class="ni ni-single-02"></i> {{ __('Employees') }}
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-cart text-red"></i> {{ __('Orders') }}
+                    <a class="nav-link" href="{{ route('food-services') }}">
+                        <i class="ni ni-cart"></i> {{ __('Orders') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                        <i class="ni ni-shop text-green"></i> {{ __('Restaurants') }}
+                    <a class="nav-link {{ (request()->is('food-services')) ? 'active' : '' }}" href="{{ route('food-services') }}">
+                        <i class="ni ni-shop"></i> {{ __('Food Services') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-album-2 text-yellow"></i> {{ __('Menus') }}
+                    <a class="nav-link {{ (request()->is('menus')) ? 'active' : '' }}" href="{{ route('menus') }}">
+                        <i class="ni ni-album-2"></i> {{ __('Menus') }}
                     </a>
                 </li>
             </ul>
@@ -93,6 +93,6 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div
     </div>
 </nav>

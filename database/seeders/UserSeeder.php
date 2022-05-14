@@ -19,8 +19,8 @@ class UserSeeder extends Seeder
         DB::table('users')->delete();
 
         $users = [
-            ['John', 'Doe'], 
-            ['Billy', 'Withers'], 
+            ['John', 'Doe'],
+            ['Billy', 'Withers'],
             ['Jack', 'Smith'],
             ['Michael', 'Gira'],
             ['Debbie', 'Harry'],
