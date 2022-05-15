@@ -9,6 +9,11 @@
                         {{ $message }}
                     </div>
                 @endif
+                    @if(session()->has('message'))
+                        <div class="alert alert-success alert-dismissible fade show">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
                 <h1 class="text-3xl text-bold text-light your-cart">Your Cart
                     <p>Before ordering, please make sure you've selected the right amount of products.<br>
                         You can increase/ decrease the quantity or even remove an item from the cart</p>

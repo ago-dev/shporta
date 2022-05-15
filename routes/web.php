@@ -3,12 +3,11 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\FoodItemController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FoodServiceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +30,11 @@ Route::get('/employees', [EmployeeController::class, 'index'])->name("employees"
 
 /* Authenticated user profile routes */
 Route::post('/profile', [ImageController::class, 'store'])->name('image-upload')->middleware('auth');
+
+/* Orders routes */
+Route::get('/orders', [OrderController::class, 'index'])->name('orders')->middleware('auth');
+Route::post('/orders/{id}', [OrderController::class, 'destroy'])->name('orders-delete')->middleware('auth');
+Route::put('/orders/{id}', [OrderController::class, 'update'])->name('orders-update')->middleware('auth');
 
 /* Restaurants routes */
 Route::get('/food-services', [FoodServiceController::class, 'index'])->name('food-services')->middleware('auth');
