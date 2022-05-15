@@ -18,6 +18,6 @@ class Customer extends Model
 
     public function name()
     {
-        return $this->user()->fullName();
+        return $this->user->fullName();
     }
 }

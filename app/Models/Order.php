@@ -21,4 +21,21 @@ class Order extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(FoodItem::class, 'item_order')
+                    ->withPivot(['quantity', 'item_rating']);
+    }
+
+    public function totalPrice()
+    {
+        if (empty($this->items)) return 0;
+
+        $totalPrice = 0;
+        foreach($this->items as $item)
+            $totalPrice += $item->pivot->quantity * $item->price;
+            
+        return '$' . $totalPrice;
+    }
 }

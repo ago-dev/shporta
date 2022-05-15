@@ -49,7 +49,8 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        Order::deliver($request);
+        return redirect()->back()->with('message', 'Successfully updated employee account!');
     }
 
     /**
