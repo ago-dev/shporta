@@ -122,13 +122,13 @@
 }
 
 .food-service-title {
-    font-size: 24px;
+    font-size: 30px;
     font-family: $font-bhs;
     color: #303952;
 }
 
 .food-service-card {
-    background-color: #dcdde1;
+    background-color: #f5f6fa;
     color: #303952;
     border: solid 3px rgba(29, 209, 161, .3);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -250,4 +250,8 @@
 .cart-form {
     display: flex;
     align-items: center;
+}
+
+#food-service-row {
+    margin-top: 40px;
 }
