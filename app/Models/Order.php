@@ -17,6 +17,11 @@ class Order extends Model
         return order::paginate(5);
     }
 
+    public static function deleteOrderItemsByOrderId($id)
+    {
+        //
+    }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
@@ -37,5 +42,10 @@ class Order extends Model
             $totalPrice += $item->pivot->quantity * $item->price;
             
         return '$' . $totalPrice;
+    }
+
+    public function setDelivered()
+    {
+        $this->delivery_datetime = now();
     }
 }

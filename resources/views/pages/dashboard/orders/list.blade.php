@@ -18,11 +18,10 @@
                             <td class="text-darker text-center">{{ $order->totalPrice() }}</td>
                             <td class="text-darker text-center">{{ $order->order_datetime }}</td>
                             <td class="text-darker text-center">{{ $order->address }}</td>
-                            <td class="text-darker text-center"></td>
-                            <td>
+                            <td class="text-center">
                                 @include('components.buttons.UpdateDeleteButtonGroup',
-                                        ['updateModalName' => 'orders-update-modal-' . $order->id],
-                                        ['deleteModalName' => 'orders-delete-confirmation-modal-' . $order->id])
+                                        ['updateModalName' => 'order-update-modal-' . $order->id],
+                                        ['deleteModalName' => 'order-delete-confirmation-modal-' . $order->id])
                             </td>
                             @include('pages.dashboard.orders.modals.DeleteOrderModal', ['order' => $order])
                             @include('pages.dashboard.orders.modals.UpdateOrderModal', ['order' => $order])

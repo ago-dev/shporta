@@ -32,8 +32,8 @@ Route::post('/profile', [ImageController::class, 'store'])->name('image-upload')
 
 /* Orders routes */
 Route::get('/orders', [OrderController::class, 'index'])->name('orders')->middleware('auth');
-Route::post('/orders/{id}', [OrderController::class, 'destroy'])->name('orders-delete')->middleware('auth');
-Route::put('/orders/{id}', [OrderController::class, 'update'])->name('orders-update')->middleware('auth');
+Route::post('/orders/{id}', [OrderController::class, 'destroy'])->name('order-delete')->middleware('auth');
+Route::put('/orders/{id}', [OrderController::class, 'update'])->name('order-update')->middleware('auth');
 
 /* Restaurants routes */
 Route::get('/food-services', [FoodServiceController::class, 'index'])->name('food-services')->middleware('auth');

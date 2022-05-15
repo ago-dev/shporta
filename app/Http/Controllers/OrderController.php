@@ -43,14 +43,13 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateOrderRequest  $request
-     * @param  \App\Models\Order  $order
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request)
     {
-        Order::deliver($request);
-        return redirect()->back()->with('message', 'Successfully updated employee account!');
+        Order::where('id', $request['id'])->first()->setDelivered();
+        return redirect()->back()->with('message', 'Successfully delivered order!');
     }
 
     /**
@@ -61,6 +60,8 @@ class OrderController extends Controller
      */
     public function destroy(Request $request)
     {
+        //bad practice - should be done in db schema via cascade, temporary
+        Order::deleteOrderItemsByOrderId($request['id']);
         Order::destroy($request['id']);
         return redirect()->back()->with('message', 'Successfully removed Order!');
     }

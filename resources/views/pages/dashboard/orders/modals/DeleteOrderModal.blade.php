@@ -4,6 +4,6 @@
         @csrf
         @include('components.modals.DeleteConfirmationModal',
                ['modalTitle' => 'Remove Order?',
-                'content'  => 'From ' . $order->customer->name() . ' at ' . $order->address])
+                'content'  => 'order from ' . $order->customer->name() . ' at ' . $order->address])
     </form>
 </div>
