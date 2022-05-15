@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderStoreRequest;
-use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Customer;
 use App\Models\ItemOrder;
 use App\Models\Order;
@@ -86,14 +85,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-<<<<<<< HEAD
      * @param Request $request
      * @return \Illuminate\Http\Response
-=======
-     * @param  UpdateOrderRequest  $request
-     * @param Order $order
-     * @return Response
->>>>>>> a6378ad1d1adb519e4d13424ae0ebcb3e2599d0b
      */
     public function update(Request $request)
     {
