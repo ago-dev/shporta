@@ -11732,14 +11732,10 @@ a {
 }
 
 .food-service-card {
-  background-color: #dff9fb;
+  background-color: #dcdde1;
   color: #303952;
   border: solid 3px rgba(29, 209, 161, 0.3);
-  border-radius: 10px;
-}
-.food-service-card img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .food-service-card p {
   opacity: 0.6;
@@ -11853,6 +11849,11 @@ a {
 .flex-container {
   display: flex;
   justify-content: space-between;
+}
+
+.cart-form {
+  display: flex;
+  align-items: center;
 }
 
 .site-footer {
@@ -12054,6 +12055,60 @@ body {
   white-space: unset !important;
 }
 
+.cart-container {
+  background: none;
+}
+
+.cart-update-form {
+  display: flex;
+}
+
+.your-cart {
+  font-weight: bold;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  opacity: 0.5;
+}
+.your-cart p {
+  font-size: 14px;
+  font-family: "Varela Round", sans-serif;
+}
+
+.cart-table td {
+  color: #2d3436;
+}
+
+.quantity-input {
+  width: 40px;
+}
+
+.update-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00b894;
+  margin-left: 7px;
+}
+.update-btn i {
+  color: white;
+}
+
+.total-price-div {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.total-price-div span {
+  font-size: 13px;
+}
+
+.cart-buttons {
+  display: flex;
+}
+
 .sm-blue {
   width: 80px;
   height: 30px;
@@ -12071,20 +12126,29 @@ body {
   color: white;
 }
 
-.round-btn {
-  border-radius: 10px;
+.round-btn, .round-btn-2 {
   color: white;
   background-color: #AC709D;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   border: none;
-  padding: 7px;
   text-align: center;
   text-decoration: none;
 }
-.round-btn:hover {
+.round-btn:hover, .round-btn-2:hover {
   transition: 0.3s;
   color: #fff;
+}
+
+.round-btn {
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.round-btn-2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .back-button {
@@ -12139,6 +12203,15 @@ body {
   width: 60%;
   transform: rotate(45deg);
   transform-origin: 0 0;
+}
+
+.cart-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  margin-right: 20px;
+  background-color: #ff7675;
 }
 
 .modal-content {

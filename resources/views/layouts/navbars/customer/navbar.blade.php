@@ -20,13 +20,13 @@
         <div class="cust-navbar-menu" id="open-cust-navbar1">
             <ul class="cust-navbar-nav">
                 <li class="active"><a href="#">
-                        <a href="#"> <i class="ni ni-planet nav-icon"></i> Home</a></li>
+                        <a href="/welcome"> <i class="ni ni-planet nav-icon"></i> Home</a></li>
                 <li class="cust-navbar-dropdown">
-                    <a href="#">
+                    <a href="/cart">
                         <i class="ni ni-cart nav-icon"></i> Cart
                     </a>
 
-                    <div class="cart-icon">0</div>
+                    <div class="cart-icon">{{ Cart::getTotalQuantity()}}</div>
                 </li>
                 <li class="cust-navbar-dropdown">
                     <a href="#">

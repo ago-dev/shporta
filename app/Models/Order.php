@@ -9,8 +9,18 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class Order extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['order_datetime', 'address', 'customer_id', 'order_points', 'delivery_datetime'];
     public $timestamps = false;
+
+    public static function store($data): Order {
+        return Order::create([
+            'order_datetime' => $data['orderDatetime'],
+            'delivery_datetime' => $data['deliveryDatetime'],
+            'address' => $data['address'],
+            'order_points' => $data['orderPoints'],
+            'customer_id' => $data['customerId']
+        ]);
+    }
 
     public static function list(): LengthAwarePaginator
     {
@@ -29,7 +39,7 @@ class Order extends Model
 
     public function items()
     {
-        return $this->belongsToMany(FoodItem::class, 'item_order')
+        return $this->belongsToMany(FoodItem::class, 'item_orders')
                     ->withPivot(['quantity', 'item_rating']);
     }
 
@@ -40,7 +50,7 @@ class Order extends Model
         $totalPrice = 0;
         foreach($this->items as $item)
             $totalPrice += $item->pivot->quantity * $item->price;
-            
+
         return '$' . $totalPrice;
     }
 

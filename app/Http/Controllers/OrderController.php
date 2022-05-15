@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderStoreRequest;
+use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Customer;
+use App\Models\ItemOrder;
 use App\Models\Order;
+use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,18 +29,53 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreOrderRequest  $request
-     * @return \Illuminate\Http\Response
+     * @param OrderStoreRequest $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(OrderStoreRequest $request)
     {
-        //
-    }
+        try {
+            DB::beginTransaction();
+            $customer = Customer::where('user_id', auth()->user()->id)->first();
+            //prepare data for insert
+            $data = [
+                'orderDatetime' => Carbon::now(),
+                'deliveryDatetime' => Carbon::now()->addMinutes(30),
+                'address' => $request['address'],
+                'orderPoints' => round(\Cart::getTotal()),
+                'customerId' => $customer->id
+            ];
+
+            //customer add order points
+            $customer->customer_points = $customer->customer_points + $data['orderPoints'];
+            $customer->save();
+
+            // Store order
+            $order = Order::store($data);
+
+            //Store order items
+            foreach (\Cart::getContent() as $orderItem) {
+                $data = [
+                    'quantity' => $orderItem['quantity'],
+                    'orderId' => $order->id,
+                    'foodItemId' => $orderItem['id']
+                ];
+
+                ItemOrder::store($data);
+            }
+
+            DB::commit();
+            \Cart::clear();
+            return redirect()->back()->with('message', 'Order sent!');
+        }catch(\Exception $exp) {
+            return redirect()->back()->with('message', 'Something didn\'t go as intended, please check your form!');
+        }
+     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param Order $order
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order)
@@ -43,8 +86,14 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
+<<<<<<< HEAD
      * @param Request $request
      * @return \Illuminate\Http\Response
+=======
+     * @param  UpdateOrderRequest  $request
+     * @param Order $order
+     * @return Response
+>>>>>>> a6378ad1d1adb519e4d13424ae0ebcb3e2599d0b
      */
     public function update(Request $request)
     {
@@ -56,7 +105,9 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @param Order $order
+     * @return RedirectResponse
+     * @return Response
      */
     public function destroy(Request $request)
     {

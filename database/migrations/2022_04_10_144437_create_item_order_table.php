@@ -12,15 +12,8 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up()
-    {/*         Schema::create('item_order', function (Blueprint $table) {
-            $table->integer('quantity')->default(1);
-            $table->integer('item_rating')->nullable();
-            $table->foreignId('order_id')->constrained();
-            $table->foreignId('food_item_id')->constrained();
-            $table->primary('order_id', 'food_item_id');
-        }); */
-        DB::statement("CREATE TABLE item_order(
+    public function up() {
+        DB::statement("CREATE TABLE item_orders(
             quantity int(11) NOT NULL DEFAULT 1,
             item_rating int(11) DEFAULT NULL,
             order_id bigint(20) unsigned NOT NULL,
@@ -37,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_order');
+        Schema::dropIfExists('item_orders');
     }
 };
