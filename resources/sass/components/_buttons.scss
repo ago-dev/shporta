@@ -15,20 +15,29 @@
     color: white;
 }
 
-.round-btn {
-    border-radius: 10px;
+.round-btn, .round-btn-2 {
     color: white;
     background-color: #AC709D;
     font-family: $font-varela-round;
     font-weight: bold;
     border: none;
-    padding: 7px;
     text-align: center;
     text-decoration: none;
     &:hover {
         transition: .3s;
         color: #fff;
     }
+}
+
+.round-btn {
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.round-btn-2 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
 .back-button{
@@ -87,4 +96,13 @@
             transform-origin: 0 0;
         }
     }
+}
+
+.cart-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    margin-right: 20px;
+    background-color: #ff7675;
 }
