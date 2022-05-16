@@ -27,7 +27,7 @@
                         @if($foodItem->food_category_id == $category->id)
                             <form class="cart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <li class="food-item">
+                                <li class="food-item {{ in_array($foodItem->id, array_column(\Cart::getContent()->toArray(), 'id')) ? 'active-btn' : ''}}">
                                     <span class="food-item-name">{{ $foodItem->name }}</span>
                                     <span class="food-item-price">{{ $foodItem->price }}$</span>
                                 </li>
