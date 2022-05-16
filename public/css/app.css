@@ -11726,20 +11726,16 @@ a {
 }
 
 .food-service-title {
-  font-size: 24px;
+  font-size: 30px;
   font-family: "Black Han Sans", sans-serif;
   color: #303952;
 }
 
 .food-service-card {
-  background-color: #dff9fb;
+  background-color: #f5f6fa;
   color: #303952;
   border: solid 3px rgba(29, 209, 161, 0.3);
-  border-radius: 10px;
-}
-.food-service-card img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .food-service-card p {
   opacity: 0.6;
@@ -11855,12 +11851,23 @@ a {
   justify-content: space-between;
 }
 
+.cart-form {
+  display: flex;
+  align-items: center;
+}
+
+#food-service-row {
+  margin-top: 40px;
+}
+
 .site-footer {
-  background-color: #26272b;
+  background-color: #303952;
   padding: 45px 0 20px;
   font-size: 15px;
   line-height: 24px;
-  color: #737373;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 100px;
+  border-top: solid 1px rgba(255, 255, 255, 0.1);
 }
 
 .site-footer hr {
@@ -11899,7 +11906,7 @@ a {
 }
 
 .footer-links a {
-  color: #737373;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-links a:active, .footer-links a:focus, .footer-links a:hover {
@@ -12054,6 +12061,60 @@ body {
   white-space: unset !important;
 }
 
+.cart-container {
+  background: none;
+}
+
+.cart-update-form {
+  display: flex;
+}
+
+.your-cart {
+  font-weight: bold;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  opacity: 0.5;
+}
+.your-cart p {
+  font-size: 14px;
+  font-family: "Varela Round", sans-serif;
+}
+
+.cart-table td {
+  color: #2d3436;
+}
+
+.quantity-input {
+  width: 40px;
+}
+
+.update-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #00b894;
+  margin-left: 7px;
+}
+.update-btn i {
+  color: white;
+}
+
+.total-price-div {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.total-price-div span {
+  font-size: 13px;
+}
+
+.cart-buttons {
+  display: flex;
+}
+
 .sm-blue {
   width: 80px;
   height: 30px;
@@ -12071,20 +12132,29 @@ body {
   color: white;
 }
 
-.round-btn {
-  border-radius: 10px;
+.round-btn, .round-btn-2 {
   color: white;
   background-color: #AC709D;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   border: none;
-  padding: 7px;
   text-align: center;
   text-decoration: none;
 }
-.round-btn:hover {
+.round-btn:hover, .round-btn-2:hover {
   transition: 0.3s;
   color: #fff;
+}
+
+.round-btn {
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.round-btn-2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .back-button {
@@ -12139,6 +12209,178 @@ body {
   width: 60%;
   transform: rotate(45deg);
   transform-origin: 0 0;
+}
+
+.cart-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  margin-right: 20px;
+  background-color: #ff7675;
+}
+
+.button {
+  background: #76B3FA;
+  border-radius: 100px;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 5px 30px;
+  text-align: center;
+}
+
+/* Hover state animation applied here */
+.button:hover {
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+}
+
+/* Active state animation applied here */
+.button:active {
+  -webkit-animation: active 1200ms ease 1 alternate;
+  animation: active 1200ms ease 1 alternate;
+  background: #5F9BE0;
+}
+
+.gray {
+  background: #D2D2D2;
+}
+
+.gray:active {
+  background: #b9b9b9;
+}
+
+/* Active state animation keyframes below */
+@-webkit-keyframes active {
+  0% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(0.9, 0.88);
+  }
+  100% {
+    transform: scale(0.92, 0.9);
+  }
+}
+/* Hover state animation keyframes below */
+@-webkit-keyframes hover {
+  0% {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  1.8% {
+    transform: matrix3d(1.016, 0, 0, 0, 0, 1.037, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  3.5% {
+    transform: matrix3d(1.033, 0, 0, 0, 0, 1.094, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  4.7% {
+    transform: matrix3d(1.045, 0, 0, 0, 0, 1.129, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  5.31% {
+    transform: matrix3d(1.051, 0, 0, 0, 0, 1.142, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  7.01% {
+    transform: matrix3d(1.068, 0, 0, 0, 0, 1.158, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  8.91% {
+    transform: matrix3d(1.084, 0, 0, 0, 0, 1.141, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  9.41% {
+    transform: matrix3d(1.088, 0, 0, 0, 0, 1.132, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  10.71% {
+    transform: matrix3d(1.097, 0, 0, 0, 0, 1.107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  12.61% {
+    transform: matrix3d(1.108, 0, 0, 0, 0, 1.077, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  14.11% {
+    transform: matrix3d(1.114, 0, 0, 0, 0, 1.067, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  14.41% {
+    transform: matrix3d(1.115, 0, 0, 0, 0, 1.067, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  16.32% {
+    transform: matrix3d(1.119, 0, 0, 0, 0, 1.077, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  18.12% {
+    transform: matrix3d(1.121, 0, 0, 0, 0, 1.096, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  18.72% {
+    transform: matrix3d(1.121, 0, 0, 0, 0, 1.102, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  20.02% {
+    transform: matrix3d(1.121, 0, 0, 0, 0, 1.113, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  21.82% {
+    transform: matrix3d(1.119, 0, 0, 0, 0, 1.119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  24.32% {
+    transform: matrix3d(1.115, 0, 0, 0, 0, 1.11, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  25.53% {
+    transform: matrix3d(1.113, 0, 0, 0, 0, 1.102, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  29.23% {
+    transform: matrix3d(1.106, 0, 0, 0, 0, 1.089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  29.93% {
+    transform: matrix3d(1.105, 0, 0, 0, 0, 1.09, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  35.54% {
+    transform: matrix3d(1.098, 0, 0, 0, 0, 1.105, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  36.64% {
+    transform: matrix3d(1.097, 0, 0, 0, 0, 1.106, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  41.04% {
+    transform: matrix3d(1.096, 0, 0, 0, 0, 1.099, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  44.04% {
+    transform: matrix3d(1.096, 0, 0, 0, 0, 1.097, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  51.45% {
+    transform: matrix3d(1.099, 0, 0, 0, 0, 1.102, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  52.15% {
+    transform: matrix3d(1.099, 0, 0, 0, 0, 1.102, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  58.86% {
+    transform: matrix3d(1.101, 0, 0, 0, 0, 1.099, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  63.26% {
+    transform: matrix3d(1.101, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  66.27% {
+    transform: matrix3d(1.101, 0, 0, 0, 0, 1.101, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  73.77% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  81.18% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  85.49% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  88.59% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  96% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  100% {
+    transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+}
+.active-btn {
+  background: #0cebeb;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .modal-content {
