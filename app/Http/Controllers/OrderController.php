@@ -83,18 +83,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Set Order status as delivered by Order id.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function setDelivered(Request $request)
-    {
-        Order::where('id', $request['id'])->first()->setDelivered()->save();
-        return redirect()->back()->with('message', 'Successfully delivered order!');
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param Request $request
@@ -103,6 +91,7 @@ class OrderController extends Controller
     public function update(Request $request)
     {
         Order::edit($request);
+        return redirect()->back()->with('message', 'Successfully updated order!');
     }
 
     /**
@@ -118,6 +107,6 @@ class OrderController extends Controller
         //bad practice - should be done in db schema via cascade, temporary
         ItemOrder::deleteByOrderId($request['id']);
         Order::destroy($request['id']);
-        return redirect()->back()->with('message', 'Successfully removed Order!');
+        return redirect()->back()->with('message', 'Successfully removed order!');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enum\OrderStatusEnum;
 use App\Models\OrderStatus;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +19,8 @@ class OrderStatusSeeder extends Seeder
         DB::table('order_statuses')->delete();
         DB::table('orders')->delete();
 
-        OrderStatus::create(array('name' => 'PENDING'));
-        OrderStatus::create(array('name' => 'DELIVERED'));
-        OrderStatus::create(array('name' => 'REJECTED'));
+        OrderStatus::create(array('name' => OrderStatusEnum::PENDING->value));
+        OrderStatus::create(array('name' => OrderStatusEnum::DELIVERED->value));
+        OrderStatus::create(array('name' => OrderStatusEnum::REJECTED->value));
     }
 }
