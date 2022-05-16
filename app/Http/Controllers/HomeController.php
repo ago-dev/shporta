@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enum\UserRoleEnum;
-use App\Models\Role;
 use Illuminate\View\View;
 
 class HomeController extends Controller

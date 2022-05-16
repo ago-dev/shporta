@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use App\Enum\ActivationEnum;
-use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Requests\FoodServiceUpdateRequest;
 use App\Http\Requests\StoreFoodServiceRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
 
 class FoodService extends Model
 {

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DeleteMenuRequest;
 use App\Http\Requests\StoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
-use App\Models\FoodItem;
 use App\Models\FoodService;
 use App\Models\Menu;
 use Illuminate\Contracts\Foundation\Application;
