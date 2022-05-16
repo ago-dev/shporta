@@ -2,8 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Enum\EmployeeRoleEnum;
+use App\Enum\UserRoleEnum;
+use App\Models\Employee;
+use App\Models\EmployeeType;
 use Closure;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -14,13 +17,17 @@ class IsAdminMiddleware
      *
      * @param Request $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\JsonResponse
+     * @return Response
      */
     public function handle(Request $request, Closure $next)
     {
-        // This validation assumes you can access role from User Model
-        if ($request->user()->role != "Admin") {
-            return response()->json(['error' => 'you are not an admin!'], 403);
+        $user = $request->user();
+        if ($user->role->name == UserRoleEnum::EMPLOYEE->value) {
+            $employee = Employee::getEmployeeByUserId($user->id);
+            $type = EmployeeType::where('id', $employee->employee_type_id)->first();
+            if ($type->name != EmployeeRoleEnum::ADMINISTRATOR->value) {
+                return response(view('errors.403'));
+            }
         }
 
         return $next($request);

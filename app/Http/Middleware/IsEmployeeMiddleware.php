@@ -2,9 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Enum\UserRoleEnum;
 use Closure;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class IsEmployeeMiddleware
 {
@@ -13,13 +16,13 @@ class IsEmployeeMiddleware
      *
      * @param Request $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return JsonResponse
+     * @return Application|ResponseFactory|Response
      */
     public function handle(Request $request, Closure $next)
     {
         // This validation assumes you can access role from User Model
-        if ($request->user()->role != "Employee") {
-            return response()->json(['error' => 'You are not an employee!'], 403);
+        if ($request->user()->role->name != UserRoleEnum::EMPLOYEE->value) {
+            return response(view('errors.404'));
         }
 
         return $next($request);

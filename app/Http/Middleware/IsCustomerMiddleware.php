@@ -2,9 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Enum\UserRoleEnum;
 use Closure;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class IsCustomerMiddleware
 {
@@ -13,13 +14,13 @@ class IsCustomerMiddleware
      *
      * @param Request $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return JsonResponse
+     * @return Response
      */
     public function handle(Request $request, Closure $next)
     {
         // This validation assumes you can access role from User Model
-        if ($request->user()->role != "Customer") {
-            return response()->json(['error' => 'you are not a customer!'], 403);
+        if ($request->user()->role->name != UserRoleEnum::CUSTOMER->value) {
+            return response(view('errors.404'));
         }
 
         return $next($request);

@@ -11,6 +11,10 @@ class EmployeeType extends Model
 
     public $timestamps = false;
 
+    public function employee() {
+        return $this->hasMany(Employee::class);
+    }
+
     public static function getTypeByName($employeeType)
     {
         return EmployeeType::where('name', $employeeType)->first();

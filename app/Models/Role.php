@@ -12,11 +12,9 @@ class Role extends Model
 
     use HasFactory;
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class);
+    public function user() {
+        return $this->hasMany(User::class);
     }
-
 
     public static function getRoleByName($role): Role {
         return Role::where('name', $role)->first();

@@ -6,7 +6,6 @@ use App\Enum\ActivationEnum;
 use App\Http\Requests\EmployeeUpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +15,13 @@ class Employee extends Model
 
     public $timestamps = false;
     protected $fillable = ['user_id', 'employee_type_id', 'is_active'];
+
+
+    public function type()
+    {
+        return $this->belongsTo(EmployeeType::class);
+
+    }
 
     public static function store($data, $user): Employee {
         return Employee::create([
@@ -59,5 +65,9 @@ class Employee extends Model
             $employee->save();
         }
         User::edit($request, $employee['user_id']);
+    }
+
+    public static function getEmployeeByUserId($userId) {
+        return Employee::where('user_id', $userId)->first();
     }
 }
