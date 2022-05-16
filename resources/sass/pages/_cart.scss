@@ -1,0 +1,57 @@
+.cart-container {
+    background: none;
+}
+
+.cart-update-form {
+    display: flex;
+}
+
+.your-cart {
+    font-weight: bold;
+    text-align: left;
+    font-family: $font-roboto;
+    color: #fff;
+    opacity: 0.5;
+
+    p {
+        font-size: 14px;
+        font-family: $font-varela-round;
+    }
+}
+
+.cart-table {
+    td {
+        color: #2d3436;
+    }
+}
+
+.quantity-input {
+    width: 40px;
+}
+
+.update-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #00b894;
+    margin-left: 7px;
+    i {
+        color: white;
+    }
+}
+
+.total-price-div {
+    color: #fff;
+    font-family: $font-roboto;
+    font-weight: bold;
+    opacity: .8;
+
+    span {
+        font-size: 13px;
+    }
+}
+
+.cart-buttons {
+    display: flex;
+}

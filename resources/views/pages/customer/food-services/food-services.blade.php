@@ -19,7 +19,7 @@
                     <img src="{{ asset('images/food-services') }}/{{$foodService->image }}" alt="Food Service Logo">
                     <h5 class="item-card-title m-2 food-service-title">{{ $foodService->name }}</h5>
                     <p class="card-text m-1">{{ $foodService->description }}</p>
-                    <a class="round-btn"
+                    <a class="button"
                     href="{{ route('food-service.show', $foodService->id) }}">See menu</a>
                 </div>
             </div>

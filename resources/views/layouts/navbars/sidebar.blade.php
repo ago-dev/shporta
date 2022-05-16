@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('food-services') }}">
+                    <a class="nav-link {{ (request()->is('orders')) ? 'active' : '' }}" href="{{ route('orders') }}">
                         <i class="ni ni-cart"></i> {{ __('Orders') }}
                     </a>
                 </li>

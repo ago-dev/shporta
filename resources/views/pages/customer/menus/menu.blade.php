@@ -25,10 +25,18 @@
                 <ul class="food-items">
                     @foreach($menu->foodItems as $foodItem)
                         @if($foodItem->food_category_id == $category->id)
-                            <li class="food-item">
-                                <span class="food-item-name">{{ $foodItem->name }}</span>
-                                <span class="food-item-price">{{ $foodItem->price }}$</span>
-                            </li>
+                            <form class="cart-form" action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <li class="food-item {{ in_array($foodItem->id, array_column(\Cart::getContent()->toArray(), 'id')) ? 'active-btn' : ''}}">
+                                    <span class="food-item-name">{{ $foodItem->name }}</span>
+                                    <span class="food-item-price">{{ $foodItem->price }}$</span>
+                                </li>
+                                <input type="hidden" value="{{ $foodItem->id }}" name="id">
+                                <input type="hidden" value="{{ $foodItem->name }}" name="name">
+                                <input type="hidden" value="{{ $foodItem->price }}" name="price">
+                                <input type="hidden" value="1" name="quantity">
+                                <button class="cart-btn">+</button>
+                            </form>
                         @endif
                     @endforeach
                 </ul>
