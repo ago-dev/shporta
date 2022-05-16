@@ -19,8 +19,12 @@
 
         <div class="cust-navbar-menu" id="open-cust-navbar1">
             <ul class="cust-navbar-nav">
-                <li class="active"><a href="#">
-                        <a href="/welcome"> <i class="ni ni-planet nav-icon"></i> Home</a></li>
+                <li>
+                        <a href="/welcome">
+                            <i class="ni ni-planet nav-icon"></i>
+                            Home
+                        </a>
+                </li>
                 <li class="cust-navbar-dropdown">
                     <a href="/cart">
                         <i class="ni ni-cart nav-icon"></i> Cart
@@ -33,7 +37,9 @@
                         <i class="ni ni-settings nav-icon"></i> Guide
                     </a>
                 </li>
-                <li><a href="#"><i class="ni ni-user-run nav-icon"></i> Log out</a></li>
+                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                        <i class="ni ni-user-run nav-icon"></i> Log out</a></li>
             </ul>
         </div>
     </div>
