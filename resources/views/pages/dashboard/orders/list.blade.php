@@ -8,6 +8,8 @@
                         <th scope="col" class="text-center">Price</th>
                         <th scope="col" class="text-center">Purchased At</th>
                         <th scope="col" class="text-center">Address</th>
+                        <th scope="col" class="text-center">Status</th>
+                        <th scope="col" class="text-center">Points</th>
                         <th scope="col" class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -18,17 +20,23 @@
                             <td class="text-darker text-center">{{ $order->totalPrice() }}</td>
                             <td class="text-darker text-center">{{ $order->order_datetime }}</td>
                             <td class="text-darker text-center">{{ $order->address }}</td>
-                            <td class="text-darker text-center"></td>
-                            <td>
-                                @include('components.buttons.UpdateDeleteButtonGroup',
-                                        ['updateModalName' => 'orders-update-modal-' . $order->id],
-                                        ['deleteModalName' => 'orders-delete-confirmation-modal-' . $order->id])
+                            <td class="text-darker text-center">{{ $order->status->name }}</td>
+                            <td class="text-darker text-center">{{ $order->order_points }}</td>
+                            <td class="text-center">
+                                <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-toggle="modal"
+                                        data-target="#{{ 'order-view-modal-' . $order->id }}" title="View">
+                                        <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-toggle="modal"
+                                        data-target="#{{ 'order-delete-confirmation-modal-' . $order->id }}" title="Delete">
+                                    <i class="ni ni-fat-remove pt-1"></i>
+                                </button>
                             </td>
+                            @include('pages.dashboard.orders.modals.ViewOrderModal', ['order' => $order])
                             @include('pages.dashboard.orders.modals.DeleteOrderModal', ['order' => $order])
-                            @include('pages.dashboard.orders.modals.UpdateOrderModal', ['order' => $order])
                         </tr>
                     @empty
-                        <tr><td colspan="5" class="text-center">No orders found!</td></tr>
+                        <tr><td colspan="5">No orders found!</td></tr>
                     @endforelse
                 </tbody>
             </table>
