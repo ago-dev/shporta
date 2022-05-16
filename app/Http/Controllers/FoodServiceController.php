@@ -58,7 +58,7 @@ class FoodServiceController extends Controller
     public function update(FoodServiceUpdateRequest $request)
     {
         FoodService::edit($request);
-        return redirect()->back()->with('message', 'Successfully updated employee account!');
+        return redirect()->back()->with('message', 'Successfully updated Food Service!');
     }
 
     /**
