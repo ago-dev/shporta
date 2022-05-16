@@ -20,4 +20,8 @@ class ItemOrder extends Model
         ]);
     }
 
+    public static function deleteByOrderId($id)
+    {
+        ItemOrder::where('order_id', $id)->delete();
+    }
 }

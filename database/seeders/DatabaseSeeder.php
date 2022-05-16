@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             EmployeeTypeSeeder::class,
             FoodCategorySeeder::class,
             FoodServiceTypeSeeder::class,
+            OrderStatusSeeder::class,
         ]);
     }
 }

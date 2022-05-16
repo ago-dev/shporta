@@ -5,12 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class Order extends Model
 {
     use HasFactory;
+
     protected $fillable = ['order_datetime', 'address', 'customer_id', 'order_points', 'delivery_datetime'];
     public $timestamps = false;
+
+    protected static $PENDING = 'PENDING';
+    protected static $DELIVERED = 'DELIVERED';
+    protected static $REJECTED = 'REJECTED';
 
     public static function store($data): Order {
         return Order::create([
@@ -32,6 +39,11 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
+    public function status()
+    {
+        return $this->belongsTo(OrderStatus::class, 'status_id');
+    }
+
     public function items()
     {
         return $this->belongsToMany(FoodItem::class, 'item_orders')
@@ -47,5 +59,23 @@ class Order extends Model
             $totalPrice += $item->pivot->quantity * $item->price;
 
         return '$' . $totalPrice;
+    }
+
+    public function setDelivered()
+    {
+        $this->delivery_datetime = Carbon::now();
+        $this->id_status = OrderStatus::getByName(Order::$DELIVERED);
+        return $this;
+    }
+
+    public static function edit(Request $request)
+    {
+        $order = Order::find($request['id']);
+        // $order->delivery_datetime = $request['deliveryDatetime'];
+        if (isset($request['delivered']))
+            $order->status_id = OrderStatus::getByName(Order::$DELIVERED)->id;
+        if (isset($request['rejected']))
+            $order->status_id = OrderStatus::getByName(Order::$REJECTED)->id;
+        $order->save();
     }
 }

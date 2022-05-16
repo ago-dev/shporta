@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -40,7 +41,7 @@ class UserSeeder extends Seeder
                 'password' => Hash::make($username),
                 'date_created' => now(),
                 'email_verified_at' => now(),
-                'role_id' => '1',
+                'role_id' => Role::getRoleByName('Customer')->id,
                 'is_active' => true)
             );
         }
