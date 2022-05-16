@@ -66,10 +66,10 @@ class OrderController extends Controller
             DB::commit();
             \Cart::clear();
             return redirect()->back()->with('message', 'Order sent!');
-        }catch(\Exception $exp) {
+        } catch(\Exception $exp) {
             return redirect()->back()->with('message', 'Something didn\'t go as intended, please check your form!');
         }
-     }
+    }
 
     /**
      * Display the specified resource.
@@ -83,6 +83,18 @@ class OrderController extends Controller
     }
 
     /**
+     * Set Order status as delivered by Order id.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function setDelivered(Request $request)
+    {
+        Order::where('id', $request['id'])->first()->setDelivered()->save();
+        return redirect()->back()->with('message', 'Successfully delivered order!');
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param Request $request
@@ -90,8 +102,7 @@ class OrderController extends Controller
      */
     public function update(Request $request)
     {
-        Order::where('id', $request['id'])->first()->setDelivered();
-        return redirect()->back()->with('message', 'Successfully delivered order!');
+        Order::edit($request);
     }
 
     /**
@@ -105,7 +116,7 @@ class OrderController extends Controller
     public function destroy(Request $request)
     {
         //bad practice - should be done in db schema via cascade, temporary
-        Order::deleteOrderItemsByOrderId($request['id']);
+        ItemOrder::deleteByOrderId($request['id']);
         Order::destroy($request['id']);
         return redirect()->back()->with('message', 'Successfully removed Order!');
     }
