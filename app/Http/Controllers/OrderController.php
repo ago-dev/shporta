@@ -34,7 +34,6 @@ class OrderController extends Controller
     public function store(OrderStoreRequest $request)
     {
         try {
-            DB::beginTransaction();
             $customer = Customer::where('user_id', auth()->user()->id)->first();
             //prepare data for insert
             $data = [
