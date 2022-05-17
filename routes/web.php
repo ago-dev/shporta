@@ -3,11 +3,11 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FoodServiceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Middleware\IsAdminMiddleware;
 use App\Http\Middleware\IsCustomerMiddleware;

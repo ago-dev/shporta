@@ -17,8 +17,16 @@ class FoodCategorySeeder extends Seeder
     {
         DB::table('food_categories')->delete();
 
-        FoodCategory::create(array('name' => 'Fat', 'healthy_rate' => 34));
-        FoodCategory::create(array('name' => 'Protein', 'healthy_rate' => 88));
-        FoodCategory::create(array('name' => 'Dairy', 'healthy_rate' => 52));
+        FoodCategory::create(array('name' => 'Pizza'));
+        FoodCategory::create(array('name' => 'Fast Food'));
+        FoodCategory::create(array('name' => 'Sea Food'));
+        FoodCategory::create(array('name' => 'Antipasta'));
+        FoodCategory::create(array('name' => 'Pasta'));
+        FoodCategory::create(array('name' => 'Embelsira'));
+        FoodCategory::create(array('name' => 'Akullore'));
+        FoodCategory::create(array('name' => 'Pije Freskuese'));
+        FoodCategory::create(array('name' => 'Pije Alkoolike'));
+        FoodCategory::create(array('name' => 'Torta'));
+        FoodCategory::create(array('name' => 'Supa'));
     }
 }
