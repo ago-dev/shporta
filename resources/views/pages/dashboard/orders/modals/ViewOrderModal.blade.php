@@ -13,6 +13,21 @@
                     @empty
                         No items found!
                     @endforelse
+                    <br>
+                    <h3>Set the estimated delivery time</h3>
+                    <div>
+                        <input type="datetime-local" id="delivery-time-input"/>
+                        <script>
+                            window.addEventListener("load", function() {
+                                var now = new Date();
+                                var offset = now.getTimezoneOffset() * 60000;
+                                var adjustedDate = new Date(now.getTime() - offset);
+                                var formattedDate = adjustedDate.toISOString().substring(0,16); // For minute precision
+                                var datetimeField = document.getElementById("delivery-time-input");
+                                datetimeField.value = formattedDate;
+                            });
+                        </script>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success"
