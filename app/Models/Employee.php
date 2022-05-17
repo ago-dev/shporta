@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enum\ActivationEnum;
+use App\Enum\EmployeeRoleEnum;
 use App\Http\Requests\EmployeeUpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -53,6 +54,7 @@ class Employee extends Model
                 'employees.id as id',
                 DB::raw('DATE_FORMAT(users.date_created, "%d %b %Y") AS dateCreated'))
             ->where('users.is_active', '=', ActivationEnum::IS_ACTIVE->value)
+            ->where('employee_types.name', '!=', EmployeeRoleEnum::ADMINISTRATOR->value)
             ->orderBy('users.date_created', 'desc')
             ->paginate(5);
     }

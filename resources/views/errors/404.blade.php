@@ -114,7 +114,7 @@
 <h1>Not Found</h1>
 <p>Sorry, but we couldn't find that page</p>
 <svg viewBox="0 0 1000 400">
-    <text id="willie" x="50%" y="50%" text-anchor="middle" fill="none">403</text>
+    <text id="willie" x="50%" y="50%" text-anchor="middle" fill="none">404</text>
     <use xlink:href="#willie" class="will will1"></use>
     <use xlink:href="#willie" class="will will2"></use>
     <use xlink:href="#willie" class="will will3"></use>

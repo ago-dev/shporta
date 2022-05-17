@@ -3,17 +3,17 @@
 namespace App\Models;
 
 use App\Enum\OrderStatusEnum;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['order_datetime', 'address', 'customer_id', 'order_points', 'delivery_datetime'];
+    protected $fillable = ['order_datetime', 'address', 'customer_id', 'order_points', 'delivery_datetime', 'status_id'];
     public $timestamps = false;
 
     public static function store($data): Order {
@@ -73,7 +73,7 @@ class Order extends Model
                 $order->delivery_datetime = null;
                 break;
         }
-        
+
         $order->save();
     }
 }
