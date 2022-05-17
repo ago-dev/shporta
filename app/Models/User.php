@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable /* implements MustVerifyEmail */
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -52,24 +52,22 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
     ];
 
-    public function hasAnyRole($roles){
-        if (is_array($roles)){
-            foreach ($roles as $role) {
-                if ($this->hasRole($role)) {
-                    return true;
-                }
-            }
-        } else if ($this->hasRole($roles)) {
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
             return true;
         }
         return false;
     }
 
-    public function hasRole($role){
-        if ($this->roles()->where('name', $role)->first()){
-            return true;
-        }
-        return false;
+    public function fullName()
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     public static function store(UserStoreRequest $request, $role): User {

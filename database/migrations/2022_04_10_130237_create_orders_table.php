@@ -19,6 +19,9 @@ return new class extends Migration
             $table->dateTime('delivery_datetime')->nullable();
             $table->string('address');
             $table->integer('order_points')->default(0);
+            $table->foreignId('status_id')
+                  ->references('id')
+                  ->on('order_statuses');
             $table->foreignId('customer_id')->constrained();
         });
     }

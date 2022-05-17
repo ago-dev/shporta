@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Enum\UserRoleEnum;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,31 +20,44 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        $users = [
-            ['John', 'Doe'],
-            ['Billy', 'Withers'],
-            ['Jack', 'Smith'],
-            ['Michael', 'Gira'],
-            ['Debbie', 'Harry'],
-            ['Steven', 'Richards'],
-            ['Laura', 'Spears']
-        ];
-
-        foreach ($users as $user) {
-            $first_name = $user[0];
-            $last_name = $user[1];
-            $username = strtolower($first_name.$last_name);
-            User::create(array(
-                'first_name' => $first_name,
-                'last_name' => $last_name,
-                'email' => $username.'@gmail.com',
-                'username' => $username,
-                'password' => Hash::make($username),
+        User::create(array(
+                'first_name' => 'Admin',
+                'last_name' => 'Admin',
+                'email' => 'admin@gmail.com',
+                'username' => 'admin',
+                'password' => Hash::make('admin'),
                 'date_created' => now(),
                 'email_verified_at' => now(),
-                'role_id' => '1',
-                'is_active' => true)
-            );
-        }
+                'role_id' => Role::getRoleByName(UserRoleEnum::EMPLOYEE->value)->id,
+                'is_active' => true,
+                'image' => 'no-pic.jpg')
+        );
+
+        User::create(array(
+                'first_name' => 'Employee',
+                'last_name' => 'Employee',
+                'email' => 'employee@gmail.com',
+                'username' => 'employee',
+                'password' => Hash::make('employee'),
+                'date_created' => now(),
+                'email_verified_at' => now(),
+                'role_id' => Role::getRoleByName(UserRoleEnum::EMPLOYEE->value)->id,
+                'is_active' => true,
+                'image' => 'no-pic.jpg')
+        );
+
+        User::create(array(
+                'first_name' => 'Customer',
+                'last_name' => 'Customer',
+                'email' => 'customer@gmail.com',
+                'username' => 'customer',
+                'password' => Hash::make('customer'),
+                'date_created' => now(),
+                'email_verified_at' => now(),
+                'role_id' => Role::getRoleByName(UserRoleEnum::CUSTOMER->value)->id,
+                'is_active' => true,
+                'image' => 'no-pic.jpg')
+        );
+
     }
 }

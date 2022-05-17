@@ -1,10 +1,12 @@
 .site-footer
 {
-    background-color:#26272b;
+    background-color: #303952;
     padding:45px 0 20px;
     font-size:15px;
     line-height:24px;
-    color:#737373;
+    color: rgba(255, 255, 255, .8);
+    margin-top: 100px;
+    border-top: solid 1px rgba(255, 255, 255, .1);
 }
 .site-footer hr
 {
@@ -43,7 +45,7 @@
 }
 .footer-links a
 {
-    color:#737373
+    color: rgba(255, 255, 255, .6);
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {

@@ -175,7 +175,8 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class
+        App\Providers\RouteServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class
     ],
 
     /*
@@ -191,5 +192,5 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
     ])->toArray(),
-
+    'Cart' => Darryldecode\Cart\Facades\CartFacade::class
 ];

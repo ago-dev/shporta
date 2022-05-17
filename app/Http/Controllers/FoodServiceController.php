@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\EmployeeUpdateRequest;
 use App\Http\Requests\FoodServiceUpdateRequest;
 use App\Http\Requests\StoreFoodServiceRequest;
-use App\Models\Employee;
 use App\Models\FoodCategory;
-use App\Models\FoodItem;
 use App\Models\FoodService;
 use App\Models\FoodServiceType;
 use App\Models\Menu;
@@ -58,7 +55,7 @@ class FoodServiceController extends Controller
     public function update(FoodServiceUpdateRequest $request)
     {
         FoodService::edit($request);
-        return redirect()->back()->with('message', 'Successfully updated employee account!');
+        return redirect()->back()->with('message', 'Successfully updated Food Service!');
     }
 
     /**

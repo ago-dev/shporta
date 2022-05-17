@@ -24,8 +24,8 @@
                           ['deleteModalName' => 'employee-delete-confirmation-modal-' . $employee->id])
             </td>
         </tr>
-        @include('pages.employees.modals.DeleteConfirmationModal', ['employee' => $employee])
-        @include('pages.employees.modals.UpdateEmployeeModal', ['employee' => $employee])
+        @include('pages.dashboard.employees.modals.DeleteConfirmationModal', ['employee' => $employee])
+        @include('pages.dashboard.employees.modals.UpdateEmployeeModal', ['employee' => $employee])
     @empty
         <tr>
             <td>No employees found!</td>

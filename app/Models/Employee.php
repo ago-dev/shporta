@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Enum\ActivationEnum;
+use App\Enum\EmployeeRoleEnum;
 use App\Http\Requests\EmployeeUpdateRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +16,13 @@ class Employee extends Model
 
     public $timestamps = false;
     protected $fillable = ['user_id', 'employee_type_id', 'is_active'];
+
+
+    public function type()
+    {
+        return $this->belongsTo(EmployeeType::class);
+
+    }
 
     public static function store($data, $user): Employee {
         return Employee::create([
@@ -47,6 +54,7 @@ class Employee extends Model
                 'employees.id as id',
                 DB::raw('DATE_FORMAT(users.date_created, "%d %b %Y") AS dateCreated'))
             ->where('users.is_active', '=', ActivationEnum::IS_ACTIVE->value)
+            ->where('employee_types.name', '!=', EmployeeRoleEnum::ADMINISTRATOR->value)
             ->orderBy('users.date_created', 'desc')
             ->paginate(5);
     }
@@ -59,5 +67,9 @@ class Employee extends Model
             $employee->save();
         }
         User::edit($request, $employee['user_id']);
+    }
+
+    public static function getEmployeeByUserId($userId) {
+        return Employee::where('user_id', $userId)->first();
     }
 }
