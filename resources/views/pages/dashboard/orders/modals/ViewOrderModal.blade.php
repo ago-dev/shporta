@@ -16,7 +16,7 @@
                     <br>
                     <h3>Set the estimated delivery time</h3>
                     <div>
-                        <input type="datetime-local" id="delivery-time-input"/>
+                        <input type="datetime-local" id="delivery-time-input" name="deliveryTime"/>
                         <script>
                             window.addEventListener("load", function() {
                                 var now = new Date();
