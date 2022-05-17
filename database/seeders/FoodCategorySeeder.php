@@ -28,5 +28,6 @@ class FoodCategorySeeder extends Seeder
         FoodCategory::create(array('name' => 'Pije Alkoolike'));
         FoodCategory::create(array('name' => 'Torta'));
         FoodCategory::create(array('name' => 'Supa'));
+        FoodCategory::create(array('name' => 'Sallate'));
     }
 }
