@@ -66,7 +66,7 @@ class Order extends Model
         switch($request['status']) {
             case OrderStatusEnum::DELIVERED->value:
                 $order->status_id = OrderStatus::getByName(OrderStatusEnum::DELIVERED->value)->id;
-                $order->delivery_datetime = Carbon::now();
+                $order->delivery_datetime = \Carbon\Carbon::parse($request['deliveryTime'])->format('Y-m-d H:i:s');
                 break;
             case OrderStatusEnum::REJECTED->value:
                 $order->status_id = OrderStatus::getByName(OrderStatusEnum::REJECTED->value)->id;
