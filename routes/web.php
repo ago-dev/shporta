@@ -50,10 +50,10 @@ Route::get('/orders', [OrderController::class, 'index'])
     ->name('orders')->middleware('auth');
 Route::post('/orders/{id}', [OrderController::class, 'destroy'])
     ->middleware(IsEmployeeMiddleware::class)
-    ->name('orders-delete')->middleware('auth');
+    ->name('order-delete')->middleware('auth');
 Route::put('/orders/{id}', [OrderController::class, 'update'])
     ->middleware(IsEmployeeMiddleware::class)
-    ->name('orders-update')->middleware('auth');
+    ->name('order-update')->middleware('auth');
 
 /* Restaurants routes */
 Route::get('/food-services', [FoodServiceController::class, 'index'])
