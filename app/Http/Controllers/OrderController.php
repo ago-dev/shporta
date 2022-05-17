@@ -6,6 +6,8 @@ use App\Http\Requests\OrderStoreRequest;
 use App\Models\Customer;
 use App\Models\ItemOrder;
 use App\Models\Order;
+use App\Models\OrderStatus;
+use App\Enum\OrderStatusEnum;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -38,9 +40,10 @@ class OrderController extends Controller
             //prepare data for insert
             $data = [
                 'orderDatetime' => Carbon::now(),
-                'deliveryDatetime' => Carbon::now()->addMinutes(30),
+                'deliveryDatetime' => null,
                 'address' => $request['address'],
                 'orderPoints' => round(\Cart::getTotal()),
+                'statusId' => OrderStatus::getIdByEnum(OrderStatusEnum::PENDING),
                 'customerId' => $customer->id
             ];
 

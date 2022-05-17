@@ -22,8 +22,8 @@ class Order extends Model
             'delivery_datetime' => $data['deliveryDatetime'],
             'address' => $data['address'],
             'order_points' => $data['orderPoints'],
-            'customer_id' => $data['customerId'],
-            'status_id' => OrderStatus::getByName(OrderStatusEnum::PENDING->value)->id
+            'status_id' => $data['statusId'],
+            'customer_id' => $data['customerId']
         ]);
     }
 
